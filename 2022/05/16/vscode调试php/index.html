@@ -1,160 +1,20 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="VScode+phpStudy搭建php代码调试环境">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="jjjing"/><meta name="copyright" content="jjjing"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="Hexo Theme MEOW"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="VScode+phpStudy搭建php代码调试环境 | jjjing"/><meta name="apple-mobile-web-app-title" content="VScode+phpStudy搭建php代码调试环境 | jjjing"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://jinggg1123.github.io/archives/2022/05/16/vscode调试php/"/><meta name="description" content="vscode下载三个插件：中文插件、PHP Debug、PHP lntelliSense。  打开phpstudy–&gt;找到软件管理–&gt;找到对应的php版本–&gt;设置按钮–&gt;扩展组件–&gt;打开XDebug调试组件，下面Profiler输出、Trace输出都勾选上。  phpstudy设置–&gt;配置文件–&gt;找到对应php版本，点击打开配置文件ctrl+f找x...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VScode+phpStudy搭建php代码调试环境">
-<meta property="og:url" content="https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/index.html">
-<meta property="og:site_name" content="before">
-<meta property="og:description" content="VScode+phpStudy搭建php代码调试环境">
+<meta property="og:title" content="VScode+phpStudy搭建php代码调试环境 | jjjing">
+<meta property="og:url" content="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/index.html">
+<meta property="og:site_name" content="jjjing">
+<meta property="og:description" content="vscode下载三个插件：中文插件、PHP Debug、PHP lntelliSense。  打开phpstudy–&gt;找到软件管理–&gt;找到对应的php版本–&gt;设置按钮–&gt;扩展组件–&gt;打开XDebug调试组件，下面Profiler输出、Trace输出都勾选上。  phpstudy设置–&gt;配置文件–&gt;找到对应php版本，点击打开配置文件ctrl+f找x...">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/assets/images/Hexo-Theme-MEOW.png">
 <meta property="article:published_time" content="2022-05-16T05:10:33.000Z">
-<meta property="article:modified_time" content="2023-12-24T05:50:35.072Z">
-<meta property="article:author" content="before">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>VScode+phpStudy搭建php代码调试环境</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
-
-
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
+<meta property="article:modified_time" content="2024-12-08T13:23:39.466Z">
+<meta property="article:author" content="jjjing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>VScode+phpStudy搭建php代码调试环境 | jjjing</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/2022/05/18/open_basedir%E7%BB%95%E8%BF%87/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/2022/05/10/ARP%E6%94%BB%E5%87%BB%E4%B8%8E%E6%AC%BA%E9%AA%97/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&text=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&is_video=false&description=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=VScode+phpStudy搭建php代码调试环境&body=Check out this article: https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&name=VScode+phpStudy搭建php代码调试环境&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&t=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        VScode+phpStudy搭建php代码调试环境
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">before</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2022-05-16T05:10:33.000Z" class="dt-published" itemprop="datePublished">2022-05-16</time>
-        
-      
-    </div>
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <ol>
+<link rel="stylesheet" href="/css/third-party/dist/APlayer.min.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><div class="post-progressbar-container"><div class="post-progressbar"></div></div><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>jjjing</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">jjjing</a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">VScode+phpStudy搭建php代码调试环境</h1><div class="post-author"><span>作者: jjjing</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2022-05-16</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2024-12-08</span></div></div><div class="post-read"></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a></span></div></div></div><div class="post markdown" indent="false"><ol>
 <li><p>vscode下载三个插件：中文插件、PHP Debug、PHP lntelliSense。</p>
 </li>
 <li><p>打开phpstudy–&gt;找到软件管理–&gt;找到对应的php版本–&gt;设置按钮–&gt;扩展组件–&gt;<br>打开XDebug调试组件，下面Profiler输出、Trace输出都勾选上。</p>
@@ -178,138 +38,115 @@
 <p>Alt+Shift+A	多行注释</p>
 <p>……</p>
 <hr>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span></span></div><div class="post-reward-content"><div class="post-reward-text"></div><div class="post-reward-list"><a href="/null" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 jjjing 于 2022-05-16 13:10:33 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/">VScode+phpStudy搭建php代码调试环境</a></span><button class="copy-text" type="button" data-text="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='Attribution-NonCommercial-ShareAlike' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>jjjing</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"></div><div class="post-nav"><a class="post-nav-prev" href="/2022/05/18/open_basedir%E7%BB%95%E8%BF%87/" title="php绕过open_basedir">上一篇<span>php绕过open_basedir</span></a><a class="post-nav-next" href="/2022/05/10/ARP%E6%94%BB%E5%87%BB%E4%B8%8E%E6%AC%BA%E9%AA%97/" title="ARP攻击与欺骗">下一篇<span>ARP攻击与欺骗</span></a></div></div><aside id="post-sidebar" status="show" active=""><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var headings = Array.from(document.querySelectorAll('.post h1, .post h2, .post h3, .post h4, .post h5, .post h6'));
+  var usedHeadings = [];
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/categories/">分类</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&text=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&is_video=false&description=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=VScode+phpStudy搭建php代码调试环境&body=Check out this article: https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&title=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&name=VScode+phpStudy搭建php代码调试环境&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/&t=VScode+phpStudy搭建php代码调试环境"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2021-2025
-    before
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
+  document.querySelectorAll('#toc-container .toc-list-link').forEach(function (link) {
+    var title = link.querySelector('.toc-list-text').textContent.trim();
+    var item = link.closest('.toc-list-item');
+    var level = (item.className.match(/toc-list-level-(\d)/) || [])[1];
+    var heading = headings.find(function (node) {
+      return usedHeadings.indexOf(node) === -1 &&
+        (!level || node.tagName === 'H' + level) &&
+        node.textContent.trim() === title;
     });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
+    if (!heading) return;
 
+    var target = heading.id ? heading : heading.querySelector('[id]');
+    if (!target) return;
+    usedHeadings.push(heading);
+    link.setAttribute('href', '#' + encodeURIComponent(target.id));
+    link.setAttribute('data-toc-target', target.id);
+  });
 
-<script src="/js/main.js"></script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('#toc-container .toc-list-link[data-toc-target]');
+    if (!link) return;
 
-<!-- search -->
+    var heading = document.getElementById(link.getAttribute('data-toc-target'));
+    if (!heading) return;
 
-<!-- Baidu Analytics -->
+    event.preventDefault();
+    event.stopPropagation();
+    window.history.pushState(null, '', link.getAttribute('href'));
+    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
+});</script></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://jinggg1123.github.io/archives/2022/05/16/vscode%E8%B0%83%E8%AF%95php/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button" aria-controls="post-sidebar" aria-expanded="true"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div><div id="music-player"></div></main><footer><div class="footer"><div id="footer-copyright">© 2021 - 2026 <span>💗</span> <a href="/null">jjjing</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title="3.3.2" target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2021-11-23T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  album: '',
+  codeblock: true,
+  code_copy_text: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: 'Please Come Back～✧(´▽`ʃ♡ƪ)',
+  mouse_click: false,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: '',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+  category: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
 
-<!-- Cloudflare Analytics -->
+<script src="/js/plugins/dist/lazyload.min.js"></script>
 
-<!-- Disqus Comments -->
+<script src="/js/plugins/view-image.min.js"></script>
+<script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/plugins/dist/APlayer.min.js"></script>
+<script>const initAplayer = (data) => {
+  if (!data.length) return;
 
-<!-- utterances Comments -->
+  const ap = new APlayer({
+    container: document.getElementById('music-player'),
+    fixed: true,
+    autoplay: false,
+    theme: '#FFB347',
+    loop: 'all',
+    order: 'list',
+    volume: 0.7,
+    lrcType: 3,
+    audio: data
+  });
 
-</body>
-</html>
+  ap.on('play', () => {
+    document.getElementById('music-player').setAttribute("play", "");
+  });
+  ap.on('pause', () => {
+    document.getElementById('music-player').removeAttribute("play");
+  });
+};
+
+const fetchData = () => {
+  fetch('')
+    .then(res => res.json())
+    .then(result => initAplayer(result));
+};
+
+if ('') {
+  document.addEventListener("DOMContentLoaded", fetchData);
+} else {
+  document.addEventListener("DOMContentLoaded", initAplayer());;
+}</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>

